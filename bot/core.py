@@ -47,6 +47,5 @@ class Core():
                 arguments = command.split()
                 await self._modules['command'].executeCommand(message, arguments)
 
-
     def runClient(self):
         self._client.run(TOKEN)

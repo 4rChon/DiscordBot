@@ -89,4 +89,4 @@ ENV/
 .ropeproject
 
 # Data
-.txt
+./bot/data/*.txt

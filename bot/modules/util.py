@@ -16,7 +16,8 @@ class UtilModule():
         self._modules['command'].registerCommand('help', self._help, 'Usage: help <command>\nEffect: Show help text for <command>', 2)
         self._modules['command'].registerCommand('whoami', self._whoami, 'Usage: whoami \nEffect: Show user and user bot role', 2)
 
-    
+    def refresh(self):
+        logging.info('UtilModule refreshed!')
 
     async def _help(self, message, args):
         registeredCommands = self._modules['command'].registeredCommands

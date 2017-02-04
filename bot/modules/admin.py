@@ -15,7 +15,13 @@ class AdminModule():
 
     def initialiseAdminCommands(self):
         self._modules['command'].registerCommand('kill', self._shutdown, 'Usage: !kill\nEffect: Shutdown bot', 0)
-        self._modules['command'].registerCommand('restart', self._restart, 'Usage: !restart <seconds>\nEffect: Restart bot after <seconds>', 0)
+        self._modules['command'].registerCommand('restart', self._restart, 'Usage: !restart <seconds = 0>\nEffect: Restart bot after <seconds>', 0)
+        self._modules['command'].registerCommand('exec', self._exec, 'Usage: !exec <code>\nEffect: Execute <code>', 0)
+        self._modules['command'].registerCommand('eval', self._eval, 'Usage: !eval <expression>\nEffect: Evaluate <expression>', 0)
+        self._modules['command'].registerCommand('refresh', self._refresh, 'Usage: !refresh <module = all>\nEffect: Refresh <module>', 0)
+
+    def refresh(self):
+        logging.info('AdminModule refreshed!')
 
     async def _shutdown(self, message, args):
         await self._client.send_message(message.channel, 'You typed `kill`. It is super effective :(')
@@ -38,3 +44,36 @@ class AdminModule():
 
         await self._client.logout()
         os.system("C:/Users/Alarak/Desktop/DiscordBot/start.bat")
+
+    async def _exec(self, message, args):
+        if len(args) == 1:
+            await self._client.send_message(message.channel, 'Invalid script.')
+            await self._modules['command'].executeCommand(message, ['help', args[1]])
+        elif len(args) > 1:
+            exec(' '.join(args[1:]))
+            print(args)
+            await self._client.send_message(message.channel, 'Executing script... (Check your console)')
+            return
+
+    async def _eval(self, message, args):
+        if len(args) == 1:
+            await self._client.send_message(message.channel, 'Invalid expression.')
+            await self._modules['command'].executeCommand(message, ['help', args[1]])
+        elif len(args) > 1:
+            result = eval(' '.join(args[1:]))
+            msg = await self._client.send_message(message.channel, 'Evaluating...')
+            await self._client.edit_message(msg, result)
+            return
+
+    async def _refresh(self, message, args):
+        if len(args) == 1:
+            for module in self._modules:
+                self._modules[module].refresh()
+                await self._client.send_message(message.channel, '`{}` module refreshed'.format(module))
+        elif len(args) > 1:
+            for arg in args[1:]:
+                if arg in self._modules:
+                    self._modules[arg].refresh()
+                    await self._client.send_message(message.channel, '`{}` module refreshed'.format(arg))
+                else:
+                    await self._client.send_message(message.channel, ' `{}` module does not exist'.format(arg))

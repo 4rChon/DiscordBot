@@ -37,6 +37,9 @@ class CommandModule():
     def registerCommand(self, message, action, helpText, auth):
         self.registeredCommands[message] = Command(action, helpText, auth)
 
+    def refresh(self):
+        logging.info('CommandModule refreshed!')
+
     async def executeCommand(self, message, args):
         if len(args) == 0:
             await self.client.send_message(message.channel, 'lol')
