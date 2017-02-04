@@ -42,7 +42,7 @@ class Core():
         @self._client.event
         async def on_message(message):
             message.content = message.content.strip()
-            if message.content.startswith('!'):
+            if message.content.startswith(PREFIX):
                 command = message.content[1:]
                 arguments = command.split()
                 await self._modules['command'].executeCommand(message, arguments)

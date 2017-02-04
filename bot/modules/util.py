@@ -13,8 +13,8 @@ class UtilModule():
         logging.info('UtilModule initialised!')
 
     def initialiseUtilCommands(self):
-        self._modules['command'].registerCommand('help', self._help, 'Usage: help <command>\nEffect: Show help text for <command>', 2)
-        self._modules['command'].registerCommand('whoami', self._whoami, 'Usage: whoami \nEffect: Show user and user bot role', 2)
+        self._modules['command'].registerCommand('help', self._help, 'Usage: ' + PREFIX + 'help <command>\nEffect: Show help text for <command>', 2)
+        self._modules['command'].registerCommand('whoami', self._whoami, 'Usage: ' + PREFIX + 'whoami \nEffect: Show user and user bot role', 2)
 
     def refresh(self):
         logging.info('UtilModule refreshed!')

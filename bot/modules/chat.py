@@ -4,6 +4,7 @@ import markovify
 
 from os import path
 from random import choice
+from nltk.tokenize import TweetTokenizer
 from ..consts import *
 
 class ChatModule():
@@ -18,17 +19,17 @@ class ChatModule():
         logging.info('UtilModule initialised!')
 
     def initialiseChatCommands(self):
-        self._modules['command'].registerCommand('hello', self._hello, 'Usage: !hello\nEffect: Say hello and mention user', 2)
-        self._modules['command'].registerCommand('generate', self._generate, 'Usage: !generate\nEffect: WIP', 2)
-        self._modules['command'].registerCommand('add-words', self._addWords, 'Usage: !add-words <word1> <word2> <...>\nEffect: Add a list of words to the dictionary', 0)
-        self._modules['command'].registerCommand('add-sentence', self._addSentence, 'Usage: !add-sentence <sentence>\nEffect: Add a sentence structure to the sentence list', 0)
-        self._modules['command'].registerCommand('remove-words', self._removeWords, 'Usage: !add-words <word1> <word2> <...>\nEffect: Remove a list of words from the dictionary', 0)
-        #self._modules['command'].registerCommand('list-corpus', self._listCorpus, 'Usage: !list-corpus\nEffect: list all known words', 2)
-        self._modules['command'].registerCommand('list-dict', self._listDict, 'Usage: !list-dict\nEffect: list all known words', 2)
+        self._modules['command'].registerCommand('hello', self._hello, 'Usage: ' + PREFIX + 'hello\nEffect: Say hello and mention user', 2)
+        self._modules['command'].registerCommand('generate', self._generate, 'Usage: ' + PREFIX + 'generate\nEffect: WIP', 2)
+        self._modules['command'].registerCommand('add-words', self._addWords, 'Usage: ' + PREFIX + 'add-words <word1> <word2> <...>\nEffect: Add a list of words to the dictionary', 0)
+        self._modules['command'].registerCommand('add-sentence', self._addSentence, 'Usage: ' + PREFIX + 'add-sentence <sentence>\nEffect: Add a sentence structure to the sentence list', 0)
+        self._modules['command'].registerCommand('remove-words', self._removeWords, 'Usage: ' + PREFIX + 'add-words <word1> <word2> <...>\nEffect: Remove a list of words from the dictionary', 0)
+        #self._modules['command'].registerCommand('list-corpus', self._listCorpus, 'Usage: ' + PREFIX + 'list-corpus\nEffect: list all known words', 2)
+        self._modules['command'].registerCommand('list-dict', self._listDict, 'Usage: ' + PREFIX + 'list-dict\nEffect: list all known words', 2)
 
     def initialiseData(self):
         with self.getFile('dictionary.txt', 'r') as f:
-            self._taggedCorpus = nltk.word_tokenize(f.read())
+            self._taggedCorpus = f.read().strip('\n').split()
         
         with self.getFile('sentences.txt', 'r') as f:
             self._taggedSentences = [line.rstrip('\n') for line in f]
@@ -55,7 +56,7 @@ class ChatModule():
         for key in tupleTags:
             wordDict[key] = [x[0] for x in taggedTuples if x[1] == key]
 
-        tags = nltk.word_tokenize(taggedSentence)
+        tags = (taggedSentence).split()
         sentence = []
         for tag in tags:
             sentence.append(choice(wordDict[tag]))
@@ -94,11 +95,17 @@ class ChatModule():
             await self._modules['command'].executeCommand(message, ['help', args[0]])
             return
 
+        msg = await self._client.send_message(message.channel, 'Adding words...')
+
         known = 0
         unknown = 0
 
-        msg = await self._client.send_message(message.channel, 'Adding words...')
-        for arg in nltk.pos_tag(args[1:]):
+        tokenizer = TweetTokenizer()
+        sentence = ' '.join(args[1:])
+        tokenizedSentence = tokenizer.tokenize(sentence)
+        taggedSentence = nltk.pos_tag(tokenizedSentence)
+
+        for arg in taggedSentence:
             arg = nltk.tuple2str(arg)
             if arg in self._taggedCorpus:
                 known += 1

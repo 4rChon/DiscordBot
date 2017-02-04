@@ -14,11 +14,11 @@ class AdminModule():
         logging.info('AdminModule initialised!')
 
     def initialiseAdminCommands(self):
-        self._modules['command'].registerCommand('kill', self._shutdown, 'Usage: !kill\nEffect: Shutdown bot', 0)
-        self._modules['command'].registerCommand('restart', self._restart, 'Usage: !restart <seconds = 0>\nEffect: Restart bot after <seconds>', 0)
-        self._modules['command'].registerCommand('exec', self._exec, 'Usage: !exec <code>\nEffect: Execute <code>', 0)
-        self._modules['command'].registerCommand('eval', self._eval, 'Usage: !eval <expression>\nEffect: Evaluate <expression>', 0)
-        self._modules['command'].registerCommand('refresh', self._refresh, 'Usage: !refresh <module = all>\nEffect: Refresh <module>', 0)
+        self._modules['command'].registerCommand('kill', self._shutdown, 'Usage: ' + PREFIX + 'kill\nEffect: Shutdown bot', 0)
+        self._modules['command'].registerCommand('restart', self._restart, 'Usage: ' + PREFIX + 'restart <seconds = 0>\nEffect: Restart bot after <seconds>', 0)
+        self._modules['command'].registerCommand('exec', self._exec, 'Usage: ' + PREFIX + 'exec <code>\nEffect: Execute <code>', 0)
+        self._modules['command'].registerCommand('eval', self._eval, 'Usage: ' + PREFIX + 'eval <expression>\nEffect: Evaluate <expression>', 0)
+        self._modules['command'].registerCommand('refresh', self._refresh, 'Usage: ' + PREFIX + 'refresh <module = all>\nEffect: Refresh <module>', 0)
 
     def refresh(self):
         logging.info('AdminModule refreshed!')
