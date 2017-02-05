@@ -64,10 +64,8 @@ class ChatModule():
         sentence = self._markovModel.make_short_sentence(140)
 
         if not sentence:
-            await self._modules['util'].deleteMessage(reply)
-            await self._modules['util'].sendMessage(reply, 'I couldn\'t come up with anything funny.')
+            await self._modules['util'].editMessage(reply, 'I couldn\'t come up with anything funny :(')
         else:
-            await self._modules['util'].deleteMessage(reply)
             await self._modules['util'].sendMessage(reply, sentence)
 
     async def _listDict(self, message, args):
@@ -91,8 +89,7 @@ class ChatModule():
             sentence = ' '.join(args[1:])
         if sentence in self._knownSentences:
             if not silent:
-                await self._modules['util'].deleteMessage(msg)
-                await self._modules['util'].sendMessage(msg, 'I already know that sentence!')
+                await self._modules['util'].editMessage(msg, 'I already know that sentence!')
         else:
             if not (sentence.endswith('.') or sentence.endswith('?')):
                 sentence += '.'
@@ -103,5 +100,4 @@ class ChatModule():
                 f.seek(0)
                 f.write(' '.join(self._knownSentences))
         if not silent:
-            await self._modules['util'].deleteMessage(msg)
-            await self._modules['util'].sendMessage(msg, 'Sentence added. Refresh module to update markov chain.')
+            await self._modules['util'].editMessage(msg, 'Sentence added. Refresh module to update markov chain.')
