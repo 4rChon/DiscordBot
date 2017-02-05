@@ -12,6 +12,6 @@ Some results after being trained on over 10,000 words:
 
 APIs and packages used:
 
-NLTK Package: https://github.com/nltk/nltk
-Markovify Package: https://github.com/jsvine/markovify
-Discord API Wrapper for Python: https://github.com/Rapptz/discord.py
+NLTK Package: https://github.com/nltk/nltk    
+Markovify Package: https://github.com/jsvine/markovify    
+Discord API Wrapper for Python: https://github.com/Rapptz/discord.py    
