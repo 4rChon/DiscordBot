@@ -19,13 +19,13 @@ class ChatModule():
         logging.info('UtilModule initialised!')
 
     def initialiseChatCommands(self):
-        self._modules['command'].registerCommand('hello', self._hello, 'Usage: ' + PREFIX + 'hello\nEffect: Say hello and mention user', 2)
-        self._modules['command'].registerCommand('generate', self._generate, 'Usage: ' + PREFIX + 'generate\nEffect: WIP', 2)
-        self._modules['command'].registerCommand('add-words', self._addWords, 'Usage: ' + PREFIX + 'add-words <word1> <word2> <...>\nEffect: Add a list of words to the dictionary', 0)
-        self._modules['command'].registerCommand('add-sentence', self._addSentence, 'Usage: ' + PREFIX + 'add-sentence <sentence>\nEffect: Add a sentence structure to the sentence list', 0)
-        self._modules['command'].registerCommand('remove-words', self._removeWords, 'Usage: ' + PREFIX + 'add-words <word1> <word2> <...>\nEffect: Remove a list of words from the dictionary', 0)
-        #self._modules['command'].registerCommand('list-corpus', self._listCorpus, 'Usage: ' + PREFIX + 'list-corpus\nEffect: list all known words', 2)
-        self._modules['command'].registerCommand('list-dict', self._listDict, 'Usage: ' + PREFIX + 'list-dict\nEffect: list all known words', 2)
+        self._modules['command'].registerCommand('hello', self._hello, 'Usage: ' + PREFIX + 'hello\nEffect: Say hello and mention user')
+        self._modules['command'].registerCommand('generate', self._generate, 'Usage: ' + PREFIX + 'generate\nEffect: WIP')
+        self._modules['command'].registerCommand('add-words', self._addWords, 'Usage: ' + PREFIX + 'add-words <word1> <word2> <...>\nEffect: Add a list of words to the dictionary')
+        self._modules['command'].registerCommand('add-sentence', self._addSentence, 'Usage: ' + PREFIX + 'add-sentence <sentence>\nEffect: Add a sentence structure to the sentence list')
+        self._modules['command'].registerCommand('remove-words', self._removeWords, 'Usage: ' + PREFIX + 'add-words <word1> <word2> <...>\nEffect: Remove a list of words from the dictionary', [CREATOR])
+        #self._modules['command'].registerCommand('list-corpus', self._listCorpus, 'Usage: ' + PREFIX + 'list-corpus\nEffect: list all known words')
+        self._modules['command'].registerCommand('list-dict', self._listDict, 'Usage: ' + PREFIX + 'list-dict\nEffect: list all known words')
 
     def initialiseData(self):
         with self.getFile('dictionary.txt', 'r') as f:
@@ -45,7 +45,11 @@ class ChatModule():
         return open(filename, mode)
 
     async def _hello(self, message, args):
-        await self._client.send_message(message.channel, 'Hi {}'.format(message.author.mention))
+        if len(args) == 1:
+            await self._client.send_message(message.channel, 'Hi {}'.format(message.author.mention))
+        elif len(args) > 1:
+            for name in args[1:]:
+                await self._client.send_message(message.channel, 'Hi {}'.format(name))
 
     async def _generate(self, message, args):
         reply = await self._client.send_message(message.channel, 'Generating sentence...')

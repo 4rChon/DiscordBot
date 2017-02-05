@@ -14,11 +14,12 @@ class AdminModule():
         logging.info('AdminModule initialised!')
 
     def initialiseAdminCommands(self):
-        self._modules['command'].registerCommand('kill', self._shutdown, 'Usage: ' + PREFIX + 'kill\nEffect: Shutdown bot', 0)
-        self._modules['command'].registerCommand('restart', self._restart, 'Usage: ' + PREFIX + 'restart <seconds = 0>\nEffect: Restart bot after <seconds>', 0)
-        self._modules['command'].registerCommand('exec', self._exec, 'Usage: ' + PREFIX + 'exec <code>\nEffect: Execute <code>', 0)
-        self._modules['command'].registerCommand('eval', self._eval, 'Usage: ' + PREFIX + 'eval <expression>\nEffect: Evaluate <expression>', 0)
-        self._modules['command'].registerCommand('refresh', self._refresh, 'Usage: ' + PREFIX + 'refresh <module = all>\nEffect: Refresh <module>', 0)
+        self._modules['command'].registerCommand('kill', self._shutdown, 'Usage: ' + PREFIX + 'kill\nEffect: Shutdown bot', [CREATOR])
+        self._modules['command'].registerCommand('restart', self._restart, 'Usage: ' + PREFIX + 'restart <seconds = 0>\nEffect: Restart bot after <seconds>', [CREATOR])
+        self._modules['command'].registerCommand('exec', self._exec, 'Usage: ' + PREFIX + 'exec <code>\nEffect: Execute <code>', [CREATOR])
+        self._modules['command'].registerCommand('eval', self._eval, 'Usage: ' + PREFIX + 'eval <expression>\nEffect: Evaluate <expression>', [CREATOR])
+        self._modules['command'].registerCommand('refresh', self._refresh, 'Usage: ' + PREFIX + 'refresh <module = all>\nEffect: Refresh <module>', [CREATOR])
+        self._modules['command'].registerCommand('auth', self._auth, 'Usage: ' + PREFIX + 'auth <command> [user <username> | role <rolename>]\nEffect: Allow <username>/<rolename> to use <command>', [CREATOR])
 
     def refresh(self):
         logging.info('AdminModule refreshed!')
@@ -53,7 +54,6 @@ class AdminModule():
             exec(' '.join(args[1:]))
             print(args)
             await self._client.send_message(message.channel, 'Executing script... (Check your console)')
-            return
 
     async def _eval(self, message, args):
         if len(args) == 1:
@@ -63,7 +63,17 @@ class AdminModule():
             result = eval(' '.join(args[1:]))
             msg = await self._client.send_message(message.channel, 'Evaluating...')
             await self._client.edit_message(msg, result)
-            return
+
+    async def _auth(self, message, args):
+        if len(args) <= 2:
+            await self._modules['command'].executeCommand(message, ['help', args[0]])
+        elif len(args) > 2:
+            if args[2] == 'user':
+                self._modules['command'].registeredCommands[args[1]].addUser(args[3])
+            elif args[2] == 'role':
+                self._modules['command'].registeredCommands[args[1]].addRole(args[3])
+            else:
+                await self._modules['command'].executeCommand(message, ['help', args[0]])
 
     async def _refresh(self, message, args):
         if len(args) == 1:
