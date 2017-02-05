@@ -5,10 +5,10 @@ Trains a markov model on chat messages. After a while it will start to generate 
 
 Some results after being trained on over 10,000 words:
 
-"Pardon me, but why is Lieutenant Barclay being referred to clandestinely as a form of transport.. for their heads."
-"Police and rioters come together to help a fat cow and hang up."
-"I don't know how to reload"
-"Dood, you were watching me when I was a broken jpeg."
+"Pardon me, but why is Lieutenant Barclay being referred to clandestinely as a form of transport.. for their heads."    
+"Police and rioters come together to help a fat cow and hang up."    
+"I don't know how to reload"    
+"Dood, you were watching me when I was a broken jpeg."    
 
 APIs and packages used:
 
