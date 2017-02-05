@@ -17,23 +17,26 @@ class Command():
         await self._action(message, args)
 
     def help(self):
+        helpText = self._helpText
         if len(self._users) > 0:
-            self._helpText += '\nAllowed users: ' + ', '.join(self._users)
+            helpText += '\nAllowed users: ' + ', '.join(self._users)
         if len(self._roles) > 0:
-            self._helpText += '\nAllowed roles: ' + ', '.join(self._roles)
-        return self._helpText
+            helpText += '\nAllowed roles: ' + ', '.join(self._roles)
+        return helpText
 
     def roles(self):
         return self._roles
 
     def addRole(self, role):
         self._roles.append(role)
+        print(self._roles)
 
     def users(self):
         return self._users
 
     def addUser(self, user):
-        self._user.append(user)
+        self._users.append(user)
+        print(self._users)
 
 
 class CommandModule():
@@ -43,8 +46,8 @@ class CommandModule():
         self.registeredCommands = {}
         logging.info('CommandModule initialised!')
 
-    def registerCommand(self, message, action, helpText, users = [], roles = []):
-        self.registeredCommands[message] = Command(action, helpText, users, roles)
+    def registerCommand(self, name, action, helpText, users = [], roles = ['everyone']):
+        self.registeredCommands[name] = Command(action, helpText, users, roles)
 
     def refresh(self):
         logging.info('CommandModule refreshed!')
@@ -57,7 +60,7 @@ class CommandModule():
         if args[0] in self.registeredCommands:
             command = self.registeredCommands[args[0]]
 
-            if len(command.users()) > 0 and len(command.roles()) > 0 and str(message.author) is not CREATOR:
+            if len(command.users()) + len(command.roles()) > 0:
                 if str(message.author) not in command.users() and not any(str(i) in message.author.roles for i in command.roles()):
                     await self._modules['util'].sendMessage(message, 'Izzabbab')
                     return

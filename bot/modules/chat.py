@@ -68,11 +68,6 @@ class ChatModule():
         else:
             await self._modules['util'].sendMessage(reply, sentence)
 
-    async def _listDict(self, message, args):
-        with self.getFile('dictionary.txt', 'r') as f:
-            f.seek(0)
-            await self._modules['util'].sendMessage(message, 'I know these words: {}'.format(f.read()))
-
     async def _addSentence(self, message, args):
         if len(args) == 1:
             await self._modules['command'].executeCommand(message, ['help', args[0]])
