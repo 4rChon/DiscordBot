@@ -48,7 +48,7 @@ class Core():
             if message.content.startswith(PREFIX):
                 args = message.content[1:].split()
                 await command.executeCommand(message, args)
-            elif message.author.id != self._client.user.id:
+            elif not message.author.bot:
                 await chat.addSentence(message.content)
 
     def runClient(self):

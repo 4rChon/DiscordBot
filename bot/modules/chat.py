@@ -3,9 +3,9 @@ import nltk
 import markovify
 import re
 
-from os import path
 from random import choice
 from ..consts import *
+from ..util import *
 
 class POSifiedText(markovify.Text):
     def word_split(self, sentence):
@@ -36,7 +36,7 @@ class ChatModule():
         command.registerCommand('say', self._say, 'Usage: ' + PREFIX + 'say\nEffect: Sprout random nonsense')
 
     def initialiseData(self):
-        with self.getFile('corpus.txt', 'r') as f:
+        with getFile('corpus.txt', 'r') as f:
             self._knownSentences = nltk.tokenize.sent_tokenize(f.read())
 
         print(len(self._knownSentences))
@@ -49,21 +49,16 @@ class ChatModule():
         logging.info('ChatModule refreshed!')
 
     async def addSentence(self, sentence):
-        if not (sentence.endswith('.') or sentence.endswith('?') or sentence.endswith('!')):
+        if not (sentence.endswith('.') or sentence.endswith('?') or sentence.endswith('!') or sentence.endswith('\'') or sentence.endswith('"')):
             sentence += '.'
 
         if sentence not in self._knownSentences:
 
             self._knownSentences.append(sentence)
 
-            with self.getFile('corpus.txt', 'w') as f:
+            with getFile('corpus.txt', 'w') as f:
                 f.seek(0)
                 f.write(' '.join(self._knownSentences))
-
-    def getFile(self, filename, mode = 'r'):
-        fileDir = path.dirname(path.realpath('__file__'))
-        filename = path.join(fileDir, 'bot/data/' + filename)
-        return open(filename, mode)
 
     async def _hello(self, message, args):
         util = self._modules['util']

@@ -4,6 +4,7 @@ import logging
 import json
 
 from ..consts import *
+from ..util import *
 
 logging.basicConfig(level=logging.INFO)
 
@@ -11,8 +12,7 @@ class Command():
     def __init__(self, action, helpText, users, roles):
         self._action = action
         self._helpText = helpText
-        self._users = users
-        self._roles = roles
+        self._permissions = {'users': users, 'roles': roles}
 
     async def execute(self, message, args):
         await self._action(message, args)
@@ -20,24 +20,25 @@ class Command():
     def help(self):
         helpText = self._helpText
         if len(self._users) > 0:
-            helpText += '\nAllowed users: ' + ', '.join(self._users)
+            helpText += '\nAllowed users: ' + ', '.join(self._permissions['users'])
         if len(self._roles) > 0:
-            helpText += '\nAllowed roles: ' + ', '.join(self._roles)
+            helpText += '\nAllowed roles: ' + ', '.join(self._permissions['roles'])
         return helpText
 
     def roles(self):
-        return self._roles
-
-    def addRole(self, role):
-        self._roles.append(role)
-        print(self._roles)
+        return self._permissions['roles']
 
     def users(self):
-        return self._users
+        return self._permissions['users']
+
+    def permissions(self):
+        return self._permissions
+
+    def addRole(self, role):
+        self._permissions['roles'].append(role)
 
     def addUser(self, user):
-        self._users.append(user)
-        print(self._users)
+        self._permissions['users'].append(user)
 
 
 class CommandModule():
@@ -50,11 +51,35 @@ class CommandModule():
 
     def registerCommand(self, name, action, helpText, users = [], roles = []):
         self._permissions[name] = {'users': users, 'roles': roles}
-        #print(self._permissions)
         self.registeredCommands[name] = Command(action, helpText, users, roles)
+
+    def readPermissions(self):
+        with getFile('permissions.json', 'r+') as f:
+            f.seek(0)
+            self._permissions = json.loads(f.read())
+
+    def writePermissions(self):
+        with getFile('permissions.json', 'w+') as f:
+            f.seek(0)
+            f.write(json.dumps(self._permissions))
+
+    def mergePermissions(self):
+        print(self._permissions)
+        dump = json.dumps(self._permissions)
+        print(dump)
+        load = json.loads(dump)
+        print(load)
+
+        with getFile('permissions.json', 'w+') as f:
+            f.seek(0)
+            self._permissions = {**json.loads(f.read()), **self._permissions}
+            f.seek(0)
+            f.write(json.dumps(self._permissions))
+
 
     def refresh(self):
         logging.info('CommandModule refreshed!')
+        self.mergePermissions()
 
     async def executeCommand(self, message, args):
         util = self._modules['util']
