@@ -5,7 +5,6 @@ import re
 
 from os import path
 from random import choice
-from nltk.tokenize import TweetTokenizer
 from ..consts import *
 
 class POSifiedText(markovify.Text):
@@ -31,15 +30,18 @@ class ChatModule():
         logging.info('UtilModule initialised!')
 
     def initialiseChatCommands(self):
-        self._modules['command'].registerCommand('hello', self._hello, 'Usage: ' + PREFIX + 'hello\nEffect: Say hello and mention user')
-        self._modules['command'].registerCommand('say', self._say, 'Usage: ' + PREFIX + 'say\nEffect: WIP')
+        command = self._modules['command']
+
+        command.registerCommand('hello', self._hello, 'Usage: ' + PREFIX + 'hello\nEffect: Say hello and mention user')
+        command.registerCommand('say', self._say, 'Usage: ' + PREFIX + 'say\nEffect: Sprout random nonsense')
 
     def initialiseData(self):
         with self.getFile('corpus.txt', 'r') as f:
-            self._knownSentences = [line.strip('\n') for line in f]
+            self._knownSentences = nltk.tokenize.sent_tokenize(f.read())
 
+        print(len(self._knownSentences))
         if len(self._knownSentences) > 0:
-            self._markovModel = POSifiedText(' '.join(self._knownSentences), state_size=2)
+            self._markovModel = POSifiedText(' '.join(self._knownSentences))
 
 
     def refresh(self):
@@ -64,16 +66,20 @@ class ChatModule():
         return open(filename, mode)
 
     async def _hello(self, message, args):
+        util = self._modules['util']
+
         if len(args) == 1:
-            await self._modules['util'].sendMessage(message, 'Hi {}'.format(message.author.mention))
+            await util.sendMessage(message, 'Hi {}'.format(message.author.mention))
         elif len(args) > 1:
             for name in args[1:]:
-                await self._modules['util'].sendMessage(message, 'Hi {}'.format(name))
+                await util.sendMessage(message, 'Hi {}'.format(name))
 
     async def _say(self, message, args):
+        util = self._modules['util']
+
         sentence = self._markovModel.make_short_sentence(140)
 
         if not sentence:
-            await self._modules['util'].sendMessage(message, 'I couldn\'t come up with anything funny :(')
+            await util.sendMessage(message, 'I couldn\'t come up with anything funny :(')
         else:
-            await self._modules['util'].sendMessage(message, sentence)
+            await util.sendMessage(message, sentence)

@@ -14,22 +14,34 @@ class AdminModule():
         logging.info('AdminModule initialised!')
 
     def initialiseAdminCommands(self):
-        self._modules['command'].registerCommand('kill', self._shutdown, 'Usage: ' + PREFIX + 'kill\nEffect: Shutdown bot', [CREATOR])
-        self._modules['command'].registerCommand('restart', self._restart, 'Usage: ' + PREFIX + 'restart <seconds = 0>\nEffect: Restart bot after <seconds>', [CREATOR])
-        self._modules['command'].registerCommand('exec', self._exec, 'Usage: ' + PREFIX + 'exec <code>\nEffect: Execute <code>', [CREATOR])
-        self._modules['command'].registerCommand('eval', self._eval, 'Usage: ' + PREFIX + 'eval <expression>\nEffect: Evaluate <expression>', [CREATOR])
-        self._modules['command'].registerCommand('refresh', self._refresh, 'Usage: ' + PREFIX + 'refresh <module = all>\nEffect: Refresh <module>', [CREATOR])
-        #self._modules['command'].registerCommand('auth', self._auth, 'Usage: ' + PREFIX + 'auth <command> [user <username> | role <rolename>]\nEffect: Allow <username>/<rolename> to use <command>', [CREATOR])
+        command = self._modules['command']
+
+        command.registerCommand('kill', self._shutdown, 'Usage: ' + PREFIX + 'kill\nEffect: Shutdown bot', [CREATOR])
+        command.registerCommand('restart', self._restart, 'Usage: ' + PREFIX + 'restart <seconds = 0>\nEffect: Restart bot after <seconds>', [CREATOR])
+        command.registerCommand('exec', self._exec, 'Usage: ' + PREFIX + 'exec <code>\nEffect: Execute <code>', [CREATOR])
+        command.registerCommand('eval', self._eval, 'Usage: ' + PREFIX + 'eval <expression>\nEffect: Evaluate <expression>', [CREATOR])
+        command.registerCommand('refresh', self._refresh, 'Usage: ' + PREFIX + 'refresh <module = all>\nEffect: Refresh <module>', [CREATOR])
+        command.registerCommand('auth', self._auth, 'Usage: ' + PREFIX + 'auth <command> [user <username> | role <rolename>]\nEffect: Allow <username>/<rolename> to use <command>', [CREATOR])
+        command.registerCommand('sleep', self._sleep, 'Usage: ' + PREFIX + 'sleep\nEffect: Ignore commands unless invoked by ' + CREATOR, [CREATOR])
 
     def refresh(self):
         logging.info('AdminModule refreshed!')
 
+    ###
+    async def _sleep(self, message, args):
+        print('..')
+        
+
     async def _shutdown(self, message, args):
-        await self._modules['util'].sendMessage(message, 'You typed `kill`. It is super effective :(')
-        await self._client.logout()
+        util = self._modules['util']
+        client = self._client
+
+        await util.sendMessage(message, 'You typed `kill`. It is super effective :(')
+        await client.logout()
 
     async def _restart(self, message, args):
         util = self._modules['util']
+        client = self._client
 
         seconds = 0
 
@@ -44,8 +56,8 @@ class AdminModule():
             await util.editMessage(output, 'Restarting in... {}.'.format(seconds))
 
         await util.deleteMessage(output)
+        await client.logout()
 
-        await self._client.logout()
         os.system("C:/Users/Alarak/Desktop/DiscordBot/start.bat")
 
     async def _exec(self, message, args):
@@ -57,7 +69,6 @@ class AdminModule():
             await command.executeCommand(message, ['help', args[1]])
         elif len(args) > 1:
             exec(' '.join(args[1:]))
-            print(args)
             await util.sendMessage(message, 'Executing script... (Check your console)')
 
     async def _eval(self, message, args):
@@ -72,6 +83,7 @@ class AdminModule():
             msg = await util.sendMessage(message, 'Evaluating...')
             await util.editMessage(msg, result)
 
+    ### Work in progress
     async def _auth(self, message, args):
         util = self._modules['util']
         command = self._modules['command']

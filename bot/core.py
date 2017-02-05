@@ -32,6 +32,9 @@ class Core():
         logging.info('Modules: \n\t{}'.format('\n\t'.join([x for x in self._modules])))
 
     def initialiseEvents(self):
+        command = self._modules['command']
+        chat = self._modules['chat']
+
         @self._client.event
         async def on_ready():
             print('Logged in as')
@@ -43,11 +46,10 @@ class Core():
         async def on_message(message):
             message.content = message.content.strip()
             if message.content.startswith(PREFIX):
-                command = message.content[1:]
-                args = command.split()
-                await self._modules['command'].executeCommand(message, args)
+                args = message.content[1:].split()
+                await command.executeCommand(message, args)
             elif message.author.id != self._client.user.id:
-                await self._modules['chat'].addSentence(message.content)
+                await chat.addSentence(message.content)
 
     def runClient(self):
         self._client.run(TOKEN)

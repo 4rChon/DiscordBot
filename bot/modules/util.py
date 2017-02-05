@@ -13,14 +13,18 @@ class UtilModule():
         logging.info('UtilModule initialised!')
 
     def initialiseUtilCommands(self):
-        self._modules['command'].registerCommand('help', self._help, 'Usage: ' + PREFIX + 'help <command>\nEffect: Show help text for <command>')
-        self._modules['command'].registerCommand('whoami', self._whoami, 'Usage: ' + PREFIX + 'whoami \nEffect: Show user and user bot role')
+        command = self._modules['command']
+
+        command.registerCommand('help', self._help, 'Usage: ' + PREFIX + 'help <command>\nEffect: Show help text for <command>')
+        command.registerCommand('whoami', self._whoami, 'Usage: ' + PREFIX + 'whoami \nEffect: Show user and user bot role')
 
     def refresh(self):
         logging.info('UtilModule refreshed!')
 
     async def _help(self, message, args):
-        registeredCommands = self._modules['command'].registeredCommands
+        command = self._modules['command']
+
+        registeredCommands = command.registeredCommands
         if len(args) == 1:
             await self.sendMessage(message, '`Prefix: {}\nCommands: {}`'.format(PREFIX, ', '.join([x for x in registeredCommands])))
         elif len(args) > 1:
@@ -28,7 +32,7 @@ class UtilModule():
 
     async def _whoami(self, message, args):
         serverRoles = ', '.join([str(x.name) for x in message.author.roles[1:]])
-        await self._client.send_message(message.channel, 'You are {} - {}'.format(str(message.author), serverRoles))
+        await self._client.send_message(message.channel, 'You are `{}` \n\nUser: `{}` \nRoles: `{}`'.format(message.author.display_name, str(message.author), serverRoles))
 
     async def sendMessage(self, message, args):
         return await self._client.send_message(message.channel, args, tts = message.tts)
