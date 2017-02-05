@@ -46,7 +46,7 @@ class CommandModule():
         self.registeredCommands = {}
         logging.info('CommandModule initialised!')
 
-    def registerCommand(self, name, action, helpText, users = [], roles = ['everyone']):
+    def registerCommand(self, name, action, helpText, users = [], roles = []):
         self.registeredCommands[name] = Command(action, helpText, users, roles)
 
     def refresh(self):
