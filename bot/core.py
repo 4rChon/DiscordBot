@@ -47,7 +47,7 @@ class Core():
                 args = command.split()
                 await self._modules['command'].executeCommand(message, args)
             elif message.author.id != self._client.user.id:
-                await self._modules['command'].executeCommand(message, ['add-sentence', '-s', message.content])
+                await self._modules['chat'].addSentence(message.content)
 
     def runClient(self):
         self._client.run(TOKEN)

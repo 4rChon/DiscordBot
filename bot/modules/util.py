@@ -14,7 +14,7 @@ class UtilModule():
 
     def initialiseUtilCommands(self):
         self._modules['command'].registerCommand('help', self._help, 'Usage: ' + PREFIX + 'help <command>\nEffect: Show help text for <command>')
-        self._modules['command'].registerCommand('whoami', self._whoami, 'Usage: ' + PREFIX + 'whoami \nEffect: Show user and user bot role', ['Bengal#1111'])
+        self._modules['command'].registerCommand('whoami', self._whoami, 'Usage: ' + PREFIX + 'whoami \nEffect: Show user and user bot role')
 
     def refresh(self):
         logging.info('UtilModule refreshed!')
