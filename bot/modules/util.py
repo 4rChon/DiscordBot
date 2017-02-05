@@ -27,7 +27,7 @@ class UtilModule():
             await self.sendMessage(message, '`{}:\n{}`'.format(args[1], registeredCommands[args[1]].help()))
 
     async def _whoami(self, message, args):
-        serverRoles = ', '.join([str(x.name) for x in message.author.roles])
+        serverRoles = ', '.join([str(x.name) for x in message.author.roles[1:]])
         await self._client.send_message(message.channel, 'You are {} - {}'.format(str(message.author), serverRoles))
 
     async def sendMessage(self, message, args):
