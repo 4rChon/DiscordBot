@@ -1,7 +1,7 @@
 # DiscordBot
 A toy discord bot
 
-Trains a markov model on chat messages. After a while it will start to generate sentences based on past chat messages.
+Trains a markov model on chat messages. After a while it will start to generate new sentences based on fragments of the chat history.
 
 Some results after being trained on over 10,000 words:
 
