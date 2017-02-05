@@ -7,6 +7,7 @@ from bot.core import Core
 
 def main():
     core = Core(discord.Client())
+    core.runClient()
     
 
 if __name__ == '__main__':

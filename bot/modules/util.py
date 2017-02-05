@@ -8,18 +8,18 @@ class UtilModule():
     def __init__(self, client, modules):
         self._client = client
         self._modules = modules
-        self.initialiseUtilCommands()
+        self._initialiseUtilCommands()
 
-        logging.info('UtilModule initialised!')
-
-    def initialiseUtilCommands(self):
-        command = self._modules['command']
-
-        command.registerCommand('help', self._help, 'Usage: ' + PREFIX + 'help <command>\nEffect: Show help text for <command>')
-        command.registerCommand('whoami', self._whoami, 'Usage: ' + PREFIX + 'whoami \nEffect: Show user and user bot role')
+        logging.info('UtilModule: Initialised!')
 
     def refresh(self):
-        logging.info('UtilModule refreshed!')
+        logging.info('UtilModule: Nothing to refresh!')
+
+    def _initialiseUtilCommands(self):
+        command = self._modules['command']
+
+        command.registerCommand('help', self._help, 'Usage: `' + PREFIX + 'help <command>`\nEffect: `Show help text for <command>`')
+        command.registerCommand('whoami', self._whoami, 'Usage: `' + PREFIX + 'whoami`\nEffect: `Show user and user bot role`')
 
     async def _help(self, message, args):
         command = self._modules['command']
@@ -28,7 +28,13 @@ class UtilModule():
         if len(args) == 1:
             await self.sendMessage(message, '`Prefix: {}\nCommands: {}`'.format(PREFIX, ', '.join([x for x in registeredCommands])))
         elif len(args) > 1:
-            await self.sendMessage(message, '`{}:\n{}`'.format(args[1], registeredCommands[args[1]].help()))
+            authText = ''
+            permissions = command.permissions[args[1]]
+            if len(permissions['users']) > 0:
+                authText += '\nAllowed users: `{}`'.format(', '.join(permissions['users']))
+            if len(permissions['roles']) > 0:
+                authText += '\nAllowed roles: `{}`'.format(', '.join(permissions['roles']))
+            await self.sendMessage(message, '{}:\n{}{}'.format(args[1], registeredCommands[args[1]].help(), authText))
 
     async def _whoami(self, message, args):
         serverRoles = ', '.join([str(x.name) for x in message.author.roles[1:]])

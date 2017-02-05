@@ -24,32 +24,29 @@ class ChatModule():
         self._knownSentences = []
         self._markovModel = {}
 
-        self.initialiseChatCommands()
-        self.initialiseData()
+        self._initialiseChatCommands()
 
-        logging.info('UtilModule initialised!')
+        logging.info('ChatModule: Initialised!')
 
-    def initialiseChatCommands(self):
+    def refresh(self):
+        self._loadData()
+        logging.info('ChatModule: Refreshed!')
+
+    def _initialiseChatCommands(self):
         command = self._modules['command']
 
-        command.registerCommand('hello', self._hello, 'Usage: ' + PREFIX + 'hello\nEffect: Say hello and mention user')
-        command.registerCommand('say', self._say, 'Usage: ' + PREFIX + 'say\nEffect: Sprout random nonsense')
+        command.registerCommand('hello', self._hello, 'Usage: `' + PREFIX + 'hello`\nEffect: `Say hello and mention user`')
+        command.registerCommand('say', self._say, 'Usage: `' + PREFIX + 'say`\nEffect: `Sprout random nonsense`')
 
-    def initialiseData(self):
+    def _loadData(self):
         with getFile('corpus.txt', 'r') as f:
             self._knownSentences = nltk.tokenize.sent_tokenize(f.read())
 
-        print(len(self._knownSentences))
         if len(self._knownSentences) > 0:
             self._markovModel = POSifiedText(' '.join(self._knownSentences))
 
-
-    def refresh(self):
-        self.initialiseData()
-        logging.info('ChatModule refreshed!')
-
     async def addSentence(self, sentence):
-        if not (sentence.endswith('.') or sentence.endswith('?') or sentence.endswith('!') or sentence.endswith('\'') or sentence.endswith('"')):
+        if not (sentence.endswith('.') or sentence.endswith('?') or sentence.endswith('!') or sentence.endswith('\'') or sentence.endswith('"') or sentence.endswith('*')):
             sentence += '.'
 
         if sentence not in self._knownSentences:
@@ -72,7 +69,7 @@ class ChatModule():
     async def _say(self, message, args):
         util = self._modules['util']
 
-        sentence = self._markovModel.make_short_sentence(140)
+        sentence = self._markovModel.make_short_sentence(100)
 
         if not sentence:
             await util.sendMessage(message, 'I couldn\'t come up with anything funny :(')

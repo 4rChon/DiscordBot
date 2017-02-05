@@ -9,25 +9,25 @@ class AdminModule():
     def __init__(self, client, modules):
         self._client = client
         self._modules = modules
-        self.initialiseAdminCommands()
+        self._initialiseAdminCommands()
 
         logging.info('AdminModule initialised!')
-
-    def initialiseAdminCommands(self):
-        command = self._modules['command']
-
-        command.registerCommand('kill', self._shutdown, 'Usage: ' + PREFIX + 'kill\nEffect: Shutdown bot', [CREATOR])
-        command.registerCommand('restart', self._restart, 'Usage: ' + PREFIX + 'restart <seconds = 0>\nEffect: Restart bot after <seconds>', [CREATOR])
-        command.registerCommand('exec', self._exec, 'Usage: ' + PREFIX + 'exec <code>\nEffect: Execute <code>', [CREATOR])
-        command.registerCommand('eval', self._eval, 'Usage: ' + PREFIX + 'eval <expression>\nEffect: Evaluate <expression>', [CREATOR])
-        command.registerCommand('refresh', self._refresh, 'Usage: ' + PREFIX + 'refresh <module = all>\nEffect: Refresh <module>', [CREATOR])
-        command.registerCommand('auth', self._auth, 'Usage: ' + PREFIX + 'auth <command> [user <username> | role <rolename>]\nEffect: Allow <username>/<rolename> to use <command>', [CREATOR])
-        command.registerCommand('sleep', self._sleep, 'Usage: ' + PREFIX + 'sleep\nEffect: Ignore commands unless invoked by ' + CREATOR, [CREATOR])
 
     def refresh(self):
         logging.info('AdminModule refreshed!')
 
-    ###
+    def _initialiseAdminCommands(self):
+        command = self._modules['command']
+
+        command.registerCommand('kill', self._shutdown, 'Usage: `' + PREFIX + 'kill`\nEffect: `Shutdown bot`')
+        command.registerCommand('restart', self._restart, 'Usage: `' + PREFIX + 'restart <seconds = 0>`\nEffect: `Restart bot after <seconds>`')
+        command.registerCommand('exec', self._exec, 'Usage: `' + PREFIX + 'exec <code>`\nEffect: `Execute <code>`')
+        command.registerCommand('eval', self._eval, 'Usage: `' + PREFIX + 'eval <expression>`\nEffect: `Evaluate <expression>`')
+        command.registerCommand('refresh', self._refresh, 'Usage: `' + PREFIX + 'refresh <module = all>`\nEffect: `Refresh <module>`')
+        command.registerCommand('auth', self._auth, 'Usage: `' + PREFIX + 'auth <command> [user <username1> <username2> <...> | role <rolename1> <rolename2> <...>]`\nEffect: `Allow <usernames>/<rolenames> to use <command>`')
+        command.registerCommand('sleep', self._sleep, 'Usage: `' + PREFIX + 'sleep`\nEffect: `Ignore commands unless invoked by ' + CREATOR + '`')
+
+    #TODO
     async def _sleep(self, message, args):
         print('..')
         
@@ -83,21 +83,19 @@ class AdminModule():
             msg = await util.sendMessage(message, 'Evaluating...')
             await util.editMessage(msg, result)
 
-    ### Work in progress
     async def _auth(self, message, args):
         util = self._modules['util']
         command = self._modules['command']
 
+        cmd = args[0]
+
         if len(args) <= 3:
-            await command.executeCommand(message, ['help', args[0]])
+            await command.executeCommand(message, ['help', cmd])
         elif len(args) == 4:
-            if args[2] == 'user':
-                print(args[1])
-                command.registeredCommands[args[1]].addUser(args[3])
-            elif args[2] == 'role':
-                command.registeredCommands[args[1]].addRole(' '.join(args[3:]))
+            if args[2] == 'users' or args[2] == 'roles':
+                command.addPermissions(args[1], args[2], args[3:])
             else:
-                command.executeCommand(message, ['help', args[0]])
+                await command.executeCommand(message, ['help', cmd])
 
     async def _refresh(self, message, args):
         util = self._modules['util']

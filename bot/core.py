@@ -15,23 +15,24 @@ class Core():
         self._client = client
         self._modules = {}
 
-        self.initialiseModules()
-        self.initialiseEvents()
+        self._initialiseModules()
+        self._initialiseEvents()
 
-        self.runClient()
-
-    def registerModule(self, name, module):
+    def _registerModule(self, name, module):
         self._modules[name] = module(self._client, self._modules)
 
-    def initialiseModules(self):
-        self.registerModule('command', CommandModule)
-        self.registerModule('admin', AdminModule)
-        self.registerModule('util', UtilModule)
-        self.registerModule('chat', ChatModule)
+    def _initialiseModules(self):
+        self._registerModule('command', CommandModule)
+        self._registerModule('admin', AdminModule)
+        self._registerModule('util', UtilModule)
+        self._registerModule('chat', ChatModule)
+
+        for module in self._modules:
+            self._modules[module].refresh()
 
         logging.info('Modules: \n\t{}'.format('\n\t'.join([x for x in self._modules])))
 
-    def initialiseEvents(self):
+    def _initialiseEvents(self):
         command = self._modules['command']
         chat = self._modules['chat']
 
