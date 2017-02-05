@@ -21,7 +21,7 @@ Creates, registers, and executes commands.
 ### Chat
 Functions related to the bot's chatting capabilities.
 
-Trains a markov model on chat messages. After a while it will start to generate new sentences based on fragments of the chat history.
+Trains a hidden Markov model on chat messages tagged by the NLTK perceptron tagger. After a while it will start to generate new sentences based on fragments of the chat history.
 
 Some results after being trained on over 10,000 words:
 
@@ -32,7 +32,6 @@ Some results after being trained on over 10,000 words:
 
 #### Commands
 * ```hello```
-* ```add-sentence```
 * ```say```
 
 ### Util
