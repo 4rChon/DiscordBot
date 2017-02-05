@@ -44,8 +44,10 @@ class Core():
             message.content = message.content.strip()
             if message.content.startswith(PREFIX):
                 command = message.content[1:]
-                arguments = command.split()
-                await self._modules['command'].executeCommand(message, arguments)
+                args = command.split()
+                await self._modules['command'].executeCommand(message, args)
+            elif message.author.id != self._client.user.id:
+                await self._modules['command'].executeCommand(message, ['add-sentence', '-s', message.content])
 
     def runClient(self):
         self._client.run(TOKEN)

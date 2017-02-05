@@ -38,7 +38,7 @@ class Command():
 
 class CommandModule():
     def __init__(self, client, modules):
-        self.client = client
+        self._client = client
         self._modules = modules
         self.registeredCommands = {}
         logging.info('CommandModule initialised!')
@@ -51,7 +51,7 @@ class CommandModule():
 
     async def executeCommand(self, message, args):
         if len(args) == 0:
-            await self.client.send_message(message.channel, 'lol')
+            await self._modules['util'].sendMessage(message, 'lol')
             return
 
         if args[0] in self.registeredCommands:
@@ -59,10 +59,10 @@ class CommandModule():
 
             if len(command.users()) > 0 and len(command.roles()) > 0 and str(message.author) is not CREATOR:
                 if str(message.author) not in command.users() and not any(str(i) in message.author.roles for i in command.roles()):
-                    await self.client.send_message(message.channel, 'Izzabbab')
+                    await self._modules['util'].sendMessage(message, 'Izzabbab')
                     return
 
             await command.execute(message, args)
 
         else:
-            await self.client.send_message(message.channel, 'I don\'t know how to {}'.format(args[0]))
+            await self._modules['util'].sendMessage(message, 'I don\'t know how to {}'.format(args[0]))

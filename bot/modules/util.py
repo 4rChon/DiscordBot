@@ -22,10 +22,19 @@ class UtilModule():
     async def _help(self, message, args):
         registeredCommands = self._modules['command'].registeredCommands
         if len(args) == 1:
-            await self._client.send_message(message.channel, '`Prefix: {}\nCommands: {}`'.format(PREFIX, ', '.join([x for x in registeredCommands])))
+            await self.sendMessage(message, '`Prefix: {}\nCommands: {}`'.format(PREFIX, ', '.join([x for x in registeredCommands])))
         elif len(args) > 1:
-            await self._client.send_message(message.channel, '`{}:\n{}`'.format(args[1], registeredCommands[args[1]].help()))
+            await self.sendMessage(message, '`{}:\n{}`'.format(args[1], registeredCommands[args[1]].help()))
 
     async def _whoami(self, message, args):
         serverRoles = ', '.join([str(x.name) for x in message.author.roles])
         await self._client.send_message(message.channel, 'You are {} - {}'.format(str(message.author), serverRoles))
+
+    async def sendMessage(self, message, args):
+        return await self._client.send_message(message.channel, args, tts = message.tts)
+
+    async def editMessage(self, message, args):
+        return await self._client.edit_message(message, args)
+
+    async def deleteMessage(self, message):
+        return await self._client.delete_message(message)

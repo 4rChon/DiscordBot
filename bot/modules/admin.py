@@ -25,7 +25,7 @@ class AdminModule():
         logging.info('AdminModule refreshed!')
 
     async def _shutdown(self, message, args):
-        await self._client.send_message(message.channel, 'You typed `kill`. It is super effective :(')
+        await self._modules['util'].sendMessage(message, 'You typed `kill`. It is super effective :(')
         await self._client.logout()
 
     async def _restart(self, message, args):
@@ -34,35 +34,35 @@ class AdminModule():
         if len(args) > 1:
             seconds = int(args[1])
 
-        output = await self._client.send_message(message.channel, 'Restarting in... {}'.format(seconds))
+        output = await self._modules['util'].sendMessage(message, 'Restarting in... {}'.format(seconds))
 
         while seconds > 0:
             await asyncio.sleep(1)
             seconds -= 1
-            await self._client.edit_message(output, 'Restarting in... {}.'.format(seconds))
+            await self._modules['util'].editMessage(output, 'Restarting in... {}.'.format(seconds))
 
-        await self._client.delete_message(output)
+        await self._modules['util'].deleteMessage(output)
 
         await self._client.logout()
         os.system("C:/Users/Alarak/Desktop/DiscordBot/start.bat")
 
     async def _exec(self, message, args):
         if len(args) == 1:
-            await self._client.send_message(message.channel, 'Invalid script.')
+            await self._modules['util'].sendMessage(message, 'Invalid script.')
             await self._modules['command'].executeCommand(message, ['help', args[1]])
         elif len(args) > 1:
             exec(' '.join(args[1:]))
             print(args)
-            await self._client.send_message(message.channel, 'Executing script... (Check your console)')
+            await self._modules['util'].sendMessage(message, 'Executing script... (Check your console)')
 
     async def _eval(self, message, args):
         if len(args) == 1:
-            await self._client.send_message(message.channel, 'Invalid expression.')
+            await self._modules['util'].sendMessage(message, 'Invalid expression.')
             await self._modules['command'].executeCommand(message, ['help', args[1]])
         elif len(args) > 1:
             result = eval(' '.join(args[1:]))
-            msg = await self._client.send_message(message.channel, 'Evaluating...')
-            await self._client.edit_message(msg, result)
+            msg = await self._modules['util'].sendMessage(message, 'Evaluating...')
+            await self._modules['util'].editMessage(msg, result)
 
     async def _auth(self, message, args):
         if len(args) <= 2:
@@ -79,11 +79,11 @@ class AdminModule():
         if len(args) == 1:
             for module in self._modules:
                 self._modules[module].refresh()
-                await self._client.send_message(message.channel, '`{}` module refreshed'.format(module))
+                await self._modules['util'].sendMessage(message, '`{}` module refreshed'.format(module))
         elif len(args) > 1:
             for arg in args[1:]:
                 if arg in self._modules:
                     self._modules[arg].refresh()
-                    await self._client.send_message(message.channel, '`{}` module refreshed'.format(arg))
+                    await self._modules['util'].sendMessage(message, '`{}` module refreshed'.format(arg))
                 else:
-                    await self._client.send_message(message.channel, ' `{}` module does not exist'.format(arg))
+                    await self._modules['util'].sendMessage(message, ' `{}` module does not exist'.format(arg))
