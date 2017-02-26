@@ -1,50 +1,59 @@
 import logging
 
-from ..consts import *
+from ..consts import PREFIX
+from .module import Module
 
 logging.basicConfig(level=logging.INFO)
 
-class UtilModule():
+class UtilModule(Module):
     def __init__(self, client, modules):
-        self._client = client
-        self._modules = modules
-        self._initialiseUtilCommands()
+        super().__init__(client, modules)
+
+        self._initialise_commands()
 
         logging.info('UtilModule: Initialised!')
 
-    def refresh(self):
-        logging.info('UtilModule: Nothing to refresh!')
-
-    def _initialiseUtilCommands(self):
+    def _initialise_commands(self):
         command = self._modules['command']
 
-        command.registerCommand('help', self._help, 'Usage: `' + PREFIX + 'help <command>`\nEffect: `Show help text for <command>`')
-        command.registerCommand('whoami', self._whoami, 'Usage: `' + PREFIX + 'whoami`\nEffect: `Show user and user bot role`')
+        command.register_command(
+            'help', self._help,
+            '`' + PREFIX + 'help <command>`',
+            '`Show help text for <command>`')
+        command.register_command(
+            'whoami', self._whoami,
+            '`' + PREFIX + 'whoami`',
+            '`Show user and user bot role`')
 
     async def _help(self, message, args):
         command = self._modules['command']
 
-        registeredCommands = command.registeredCommands
+        registered_commands = command.registered_commands
         if len(args) == 1:
-            await self.sendMessage(message, '`Prefix: {}\nCommands: {}`'.format(PREFIX, ', '.join([x for x in registeredCommands])))
+            command_names = ', '.join([x for x in registered_commands])
+            await self.send_message(message, '`Prefix: {}\nCommands: {}`'.format(PREFIX, command_names))
         elif len(args) > 1:
-            authText = ''
+            auth_text = ''
             permissions = command.permissions[args[1]]
             if len(permissions['users']) > 0:
-                authText += '\nAllowed users: `{}`'.format(', '.join(permissions['users']))
+                auth_text += '\nAllowed users: `{}`'.format(', '.join(permissions['users']))
             if len(permissions['roles']) > 0:
-                authText += '\nAllowed roles: `{}`'.format(', '.join(permissions['roles']))
-            await self.sendMessage(message, '{}:\n{}{}'.format(args[1], registeredCommands[args[1]].help(), authText))
+                auth_text += '\nAllowed roles: `{}`'.format(', '.join(permissions['roles']))
+            await self.send_message(message, '{}:\n{}{}'.format(args[1], registered_commands[args[1]].help(), auth_text))
 
     async def _whoami(self, message, args):
-        serverRoles = ', '.join([str(x.name) for x in message.author.roles[1:]])
-        await self._client.send_message(message.channel, 'You are `{}` \n\nUser: `{}` \nRoles: `{}`'.format(message.author.display_name, str(message.author), serverRoles))
+        display_name = message.author.display_name
+        author = str(message.author)
+        server_roles = ', '.join([str(x.name) for x in message.author.roles[1:]])
+        await self._client.send_message(
+            message.channel,
+            'You are `{}` \n\nUser: `{}` \nRoles: `{}`'.format(display_name, author, server_roles))
 
-    async def sendMessage(self, message, args):
-        return await self._client.send_message(message.channel, args, tts = message.tts)
+    async def send_message(self, message, args):
+        return await self._client.send_message(message.channel, args, tts=message.tts)
 
-    async def editMessage(self, message, args):
+    async def edit_message(self, message, args):
         return await self._client.edit_message(message, args)
 
-    async def deleteMessage(self, message):
+    async def delete_message(self, message):
         return await self._client.delete_message(message)

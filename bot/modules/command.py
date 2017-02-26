@@ -1,76 +1,77 @@
-import asyncio
-import nltk
 import logging
 import json
 
-from ..consts import *
-from ..util import *
+from ..util import get_file
+from .module import Module
 
 logging.basicConfig(level=logging.INFO)
 
-class Command():
-    def __init__(self, action, helpText):
+class Command(object):
+    def __init__(self, action, usage, effect):
         self._action = action
-        self._helpText = helpText
+        self._help_text = 'Usage: ' + usage + '\n' + 'Effect: ' + effect
 
     async def execute(self, message, args):
         await self._action(message, args)
 
     def help(self):
-        return self._helpText
+        return self._help_text
 
-class CommandModule():
+class CommandModule(Module):
     def __init__(self, client, modules):
-        self._client = client
-        self._modules = modules
+        super().__init__(client, modules)
+
         self.permissions = {}
-        self.registeredCommands = {}
-        
+        self.registered_commands = {}
+
         logging.info('CommandModule: Initialised!')
 
     def refresh(self):
+        self._read_permissions()
         logging.info('CommandModule: Refreshed!')
-        self._readPermissions()
 
-    def registerCommand(self, cmd, action, helpText, permissions = {'users': [], 'roles': []}):
+    def register_command(self, cmd, action, usage="Undocumented", effect="Undocumented", permissions=None):
+        if permissions is None:
+            permissions = {'users':[], 'roles':[]}
         self.permissions[cmd] = permissions
-        self.registeredCommands[cmd] = Command(action, helpText)
+        self.registered_commands[cmd] = Command(action, usage, effect)
 
-    def addPermissions(self, cmd, authType, permissables):
+    def add_permissions(self, cmd, auth_type, permissables):
         for permissable in permissables:
-            permissions = self.permissions[cmd][authType]
+            permissions = self.permissions[cmd][auth_type]
             if permissable not in permissions:
                 permissions.append(permissable)
-        self._writePermissions()
+        self._write_permissions()
 
-    def removePermissions(self, cmd, authType, unpermissable):
-        self.permissions[cmd][authType].remove(unpermissable)
-        self._writePermissions()
+    def remove_permissions(self, cmd, auth_type, unpermissable):
+        self.permissions[cmd][auth_type].remove(unpermissable)
+        self._write_permissions()
 
-    def _readPermissions(self):
-        with getFile('permissions.json', 'r+') as f:
-            f.seek(0)
-            self.permissions = json.loads(f.read())
+    def _read_permissions(self):
+        with get_file('permissions.json', 'r+') as permissions_file:
+            permissions_file.seek(0)
+            self.permissions = json.loads(permissions_file.read())
 
-    def _writePermissions(self):
-        with getFile('permissions.json', 'w+') as f:
-            f.seek(0)
-            f.write(json.dumps(self.permissions))
+    def _write_permissions(self):
+        with get_file('permissions.json', 'w+') as permissions_file:
+            permissions_file.seek(0)
+            permissions_file.write(json.dumps(self.permissions))
 
-    async def executeCommand(self, message, args):
+    async def execute_command(self, message, args):
         util = self._modules['util']
 
         if len(args) == 0:
-            await util.sendMessage(message, 'lol')
+            await util.send_message(message, 'lol')
             return
 
         permissions = self.permissions
         cmd = args[0]
         if cmd in permissions:
             if len(permissions[cmd]['users']) + len(permissions[cmd]['roles']) > 0:
-                if str(message.author) not in permissions[cmd]['users'] and not any(str(i) in message.author.roles for i in permissions[cmd]['roles']):
-                    await util.sendMessage(message, 'Izzabbab')
+                if (str(message.author) not in permissions[cmd]['users']
+                        and not any(str(i) in message.author.roles for i in permissions[cmd]['roles'])):
+                    await util.send_message(message, 'Izzabbab')
                     return
-            await self.registeredCommands[cmd].execute(message, args)
+            await self.registered_commands[cmd].execute(message, args)
         else:
-            await util.sendMessage(message, 'I don\'t know how to {}'.format(cmd))
+            await util.send_message(message, 'I don\'t know how to {}'.format(cmd))

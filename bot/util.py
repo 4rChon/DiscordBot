@@ -1,6 +1,6 @@
 from os import path
 
-def getFile(filename, mode = 'r'):
-    fileDir = path.dirname(path.realpath('__file__'))
-    filename = path.join(fileDir, 'bot/data/' + filename)
+def get_file(filename, mode='r'):
+    file_dir = path.dirname(path.realpath('__file__'))
+    filename = path.join(file_dir, 'bot/data/' + filename)
     return open(filename, mode)
