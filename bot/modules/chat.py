@@ -65,7 +65,7 @@ class ChatModule(Module):
             self._markov_model['chat'] = POSifiedText(
                 ' '.join(self._known_sentences))
 
-    async def addSentence(self, sentence):
+    async def add_sentence(self, sentence):
         #TODO: Check with regex if possible
         if not (sentence.endswith('.')
                 or sentence.endswith('?')
@@ -104,6 +104,11 @@ class ChatModule(Module):
 
     async def _quote(self, message, args):
         util = self._modules['util']
+        command = self._modules['command']
+
+        if len(args) == 1:
+            await command.execute_command(message, ['help', args[0]])
+            return
 
         sentence = self._markov_model[args[1]].make_short_sentence(100)
 
