@@ -4,6 +4,7 @@ from .modules.command import CommandModule
 from .modules.admin import AdminModule
 from .modules.util import UtilModule
 from .modules.chat import ChatModule
+from .modules.crawler import CrawlerModule
 from .consts import TOKEN, PREFIX
 
 logging.basicConfig(level=logging.INFO)
@@ -18,16 +19,19 @@ class Core(object):
                 'command': CommandModule,
                 'admin': AdminModule,
                 'util': UtilModule,
-                'chat': ChatModule
+                'chat': ChatModule,
+                'crawler': CrawlerModule
             })
+
         self._initialise_events()
 
     def _register_module(self, name, module):
         self._modules[name] = module(self._client, self._modules)
 
     def _initialise_modules(self, modules):
-        for module in modules:
-            self._register_module(module, modules[module])
+        for key in modules:
+            print(key)
+            self._register_module(key, modules[key])
 
         for module in self._modules:
             self._modules[module].refresh()

@@ -2,7 +2,7 @@ import asyncio
 import logging
 import os
 
-from ..consts import PREFIX, CREATOR
+from ..consts import PREFIX, CREATOR, DIRECTORY
 from .module import Module
 
 logging.basicConfig(level=logging.INFO)
@@ -22,27 +22,33 @@ class AdminModule(Module):
             'kill', self._shutdown,
             '`' + PREFIX + 'kill`',
             '`Shutdown bot`')
+
         command.register_command(
             'restart', self._restart,
             '`' + PREFIX + 'restart <seconds = 0>`',
             '`Restart bot after <seconds>`')
+
         command.register_command(
             'exec', self._exec,
             '`' + PREFIX + 'exec <code>`',
             '`Execute <code>`')
+
         command.register_command(
             'eval', self._eval,
             '`' + PREFIX + 'eval <expression>`',
             '`Evaluate <expression>`')
         command.register_command(
+
             'refresh', self._refresh,
             '`' + PREFIX + 'refresh <module = all>`',
             '`Refresh <module>`')
+
         command.register_command(
             'auth', self._auth,
             """`' + PREFIX + 'auth <command> [user <username1> <username2> <...> | role <rolename1>
              <rolename2> <...>]`""",
             '`Allow <usernames>/<rolenames> to use <command>`')
+
         command.register_command(
             'sleep', self._sleep,
             '`' + PREFIX + 'sleep`',
@@ -80,7 +86,7 @@ class AdminModule(Module):
         await util.delete_message(output)
         await client.logout()
 
-        os.system("C:/Users/Alarak/Desktop/DiscordBot/start.bat")
+        os.system(DIRECTORY + "/start.bat")
 
     async def _exec(self, message, args):
         util = self._modules['util']
