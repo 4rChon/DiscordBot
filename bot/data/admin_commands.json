@@ -1,0 +1,65 @@
+{
+	"kill": 
+	{
+		"usage": "kill",
+		"effect": "Shutdown bot",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	},
+	"restart": 
+	{
+		"usage": "restart <seconds = 0>",
+		"effect": "Restart bot after <seconds>",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	},
+	"exec": 
+	{
+		"usage": "exec <code>",
+		"effect": "Execute <code>",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	},
+	"eval": 
+	{
+		"usage": "eval <expression>",
+		"effect": "Evaluate <expression>",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	},
+	"refresh": 
+	{
+		"usage": "refresh <module = all>",
+		"effect": "Refresh <module>",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	},
+	"auth": 
+	{
+		"usage": "auth <command> [user <username1> <username2> <...> | role <rolename1> <rolename2> <...>]",
+		"effect": "Allow <usernames>/<rolenames> to use <command>",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	},
+	"sleep": 
+	{
+		"usage": "sleep",
+		"effect": "Ignore commands unless invoked by Admin (NYI)",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	}
+}

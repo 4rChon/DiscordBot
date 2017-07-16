@@ -1,0 +1,29 @@
+{
+	"hello": 
+	{
+		"usage": "hello",
+		"effect": "Say hello and mention user",
+		"permissions": {
+			"users": [],
+			"roles": []
+		}
+	},
+	"say": 
+	{
+		"usage": "say",
+		"effect": "Sprout random nonsense",
+		"permissions": {
+			"users": [],
+			"roles": []
+		}
+	},
+	"quote": 
+	{
+		"usage": "quote <english | malti>",
+		"effect": "Generate a saying",
+		"permissions": {
+			"users": ["ArChon#7601"],
+			"roles": []
+		}
+	}
+}

@@ -1,0 +1,21 @@
+{
+
+	"help": 
+	{
+		"usage": "help <command>",
+		"effect": "Show help text for <command>",
+		"permissions": {
+			"users": [],
+			"roles": []
+		}
+	},
+	"whoami": 
+	{
+		"usage": "whoami",
+		"effect": "Show user and user bot role",
+		"permissions": {
+			"users": [],
+			"roles": []
+		}
+	}
+}
