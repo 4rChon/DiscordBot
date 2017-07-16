@@ -25,11 +25,11 @@ class CommandModule(Module):
         self.permissions = {}
         self.registered_commands = {}
 
-        logging.info('CommandModule: Initialised!')
+        logging.info('%: Initialised!', self.__class__.__name__)
 
     def refresh(self):
         self._read_permissions()
-        logging.info('CommandModule: Refreshed!')
+        logging.info('%: Refreshed!', self.__class__.__name__)
 
     def register_commands(self, module, commands_filename):
         with get_file(commands_filename, 'r+') as commands_file:
@@ -40,21 +40,17 @@ class CommandModule(Module):
 
         for cmd_name in module.commands:
             cmd = module.commands[cmd_name]
-
             self.register_command(
-                cmd         = cmd_name,
-                action      = module_methods['_' + cmd_name], 
-                usage       = '`' + PREFIX + cmd["usage"] + '`', 
-                effect      = '`' + cmd["effect"] + '`', 
-                permissions = cmd["permissions"]
-            )
+                cmd_name,
+                module_methods['_' + cmd_name],
+                cmd)
 
-    def register_command(self, cmd, action, usage="Undocumented", effect="Undocumented", permissions=None):
-        if permissions is None:
-            permissions = {'users':[], 'roles':[]}
+    def register_command(self, name, action, props):
+        usage = '`' + PREFIX + props["usage"] + '`',
+        effect = '`' + props["effect"] + '`',
 
-        self.permissions[cmd] = permissions
-        self.registered_commands[cmd] = Command(action, usage, effect)       
+        self.permissions[name] = props["permissions"]
+        self.registered_commands[name] = Command(action, usage, effect)
 
     def add_permissions(self, cmd, auth_type, permissables):
         for permissable in permissables:

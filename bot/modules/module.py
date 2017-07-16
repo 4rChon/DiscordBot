@@ -6,4 +6,4 @@ class Module(object):
         self._modules = modules
 
     def refresh(self):
-        logging.info('{}: Nothing to refresh!'.format(self.__class__.__name__))
+        logging.info('%: Nothing to refresh!', self.__class__.__name__)

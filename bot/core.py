@@ -1,3 +1,7 @@
+"""Core module of the discord bot.
+
+Calls initialisers for all modules and sets up event handlers.
+"""
 import logging
 
 from .modules.command import CommandModule
@@ -10,6 +14,7 @@ from .consts import TOKEN, PREFIX
 logging.basicConfig(level=logging.INFO)
 
 class Core(object):
+    """Core class containing the core components of the discord bot."""
     def __init__(self, client):
         self._client = client
         self._modules = {}
@@ -36,7 +41,7 @@ class Core(object):
         for module in self._modules:
             self._modules[module].refresh()
 
-        logging.info('\nModules: \n\t{}'.format('\n\t'.join([x for x in self._modules])))
+        logging.info('\nModules: \n\t%', '\n\t'.join([x for x in self._modules]))
 
     def _initialise_events(self):
         command = self._modules['command']
@@ -47,8 +52,8 @@ class Core(object):
         #################
         @self._client.event
         async def on_ready():
-            login_message = '\nLogged in as\n\t{}\n\t{}\n------------------------------'
-            logging.info(login_message.format(self._client.user.name, self._client.user.id))
+            login_message = '\nLogged in as\n\t%\n\t%\n------------------------------'
+            logging.info(login_message, self._client.user.name, self._client.user.id)
 
         @self._client.event
         async def on_message(message):

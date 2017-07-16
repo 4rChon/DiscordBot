@@ -1,22 +1,21 @@
+"""Contains the AdminModule which defines administrative methods."""
 import asyncio
 import logging
 import sys
 import os
-import json
-import inspect
 
-from ..util import get_file
 from .module import Module
 
 logging.basicConfig(level=logging.INFO)
 
 class AdminModule(Module):
+    """AdminModule which defines administrative methods."""
     def __init__(self, client, modules):
         super().__init__(client, modules)
 
         self._initialise_commands()
 
-        logging.info('{}: Initialised!'.format(self.__class__.__name__))
+        logging.info('%: Initialised!', self.__class__.__name__)
 
     def _initialise_commands(self):
         command = self._modules['command']

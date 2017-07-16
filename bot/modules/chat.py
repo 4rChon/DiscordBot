@@ -1,3 +1,4 @@
+"""Contains the ChatModule which defines chatting methods."""
 import logging
 import nltk
 import markovify
@@ -9,16 +10,33 @@ from ..util import get_file
 from .module import Module
 
 class POSifiedText(markovify.Text):
+    """Markovify class to create sentences."""
     def word_split(self, sentence):
+        """Splits the words in a sentence and tags them.
+
+        Args:
+            sentence: Sentence to be split into words.
+
+        Returns:
+            A list of tagged words from sentence.
+        """
         words = re.split(self.word_split_pattern, sentence)
         words = ["::".join(tag) for tag in nltk.pos_tag(words)]
         return words
 
     def word_join(self, words):
+        """Joins the words to form a sentence.
+
+        Args:
+            words: A list of words to join.
+
+        Returns:
+            A sentence formed from the joined words."""
         sentence = " ".join(word.split("::")[0] for word in words)
         return sentence
 
 class ChatModule(Module):
+    """ChatModule which defines chatting methods."""
     def __init__(self, client, modules):
         super().__init__(client, modules)
 
@@ -27,11 +45,12 @@ class ChatModule(Module):
 
         self._initialise_commands()
 
-        logging.info('{}: Initialised!'.format(self.__class__.__name__))
+        logging.info('%: Initialised!', self.__class__.__name__)
 
     def refresh(self):
+        """Reloads the word dictionary to be used in the markov model."""
         self._load_data()
-        logging.info('{}: Refreshed!'.format(self.__class__.__name__))
+        logging.info('%: Refreshed!', self.__class__.__name__)
 
     def _initialise_commands(self):
         command = self._modules['command']
