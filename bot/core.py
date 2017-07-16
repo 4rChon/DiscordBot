@@ -35,13 +35,10 @@ class Core(object):
 
     def _initialise_modules(self, modules):
         for key in modules:
-            print(key)
             self._register_module(key, modules[key])
 
         for module in self._modules:
             self._modules[module].refresh()
-
-        logging.info('\nModules: \n\t%', '\n\t'.join([x for x in self._modules]))
 
     def _initialise_events(self):
         command = self._modules['command']
@@ -52,8 +49,8 @@ class Core(object):
         #################
         @self._client.event
         async def on_ready():
-            login_message = '\nLogged in as\n\t%\n\t%\n------------------------------'
-            logging.info(login_message, self._client.user.name, self._client.user.id)
+            login_message = '\nLogged in as\n\t{}\n\t{}\n------------------------------'
+            logging.info(login_message.format(self._client.user.name, self._client.user.id))
 
         @self._client.event
         async def on_message(message):

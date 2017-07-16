@@ -15,7 +15,7 @@ class AdminModule(Module):
 
         self._initialise_commands()
 
-        logging.info('%: Initialised!', self.__class__.__name__)
+        logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def _initialise_commands(self):
         command = self._modules['command']

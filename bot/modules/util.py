@@ -11,7 +11,7 @@ class UtilModule(Module):
 
         self._initialise_commands()
 
-        logging.info('%: Initialised!', self.__class__.__name__)
+        logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def _initialise_commands(self):
         command = self._modules['command']
@@ -24,14 +24,14 @@ class UtilModule(Module):
         registered_commands = command.registered_commands
         if len(args) == 1:
             command_names = ', '.join([x for x in registered_commands])
-            await self.send_message(message, '`Prefix: %\nCommands: %`', PREFIX, command_names)
+            await self.send_message(message, '`Prefix: {}\nCommands: {}`'.format(PREFIX, command_names))
         elif len(args) > 1:
             auth_text = ''
             permissions = command.permissions[args[1]]
             if len(permissions['users']) > 0:
-                auth_text += '\nAllowed users: `%`', ', '.join(permissions['users'])
+                auth_text += '\nAllowed users: `{}`'.format(', '.join(permissions['users']))
             if len(permissions['roles']) > 0:
-                auth_text += '\nAllowed roles: `%`', ', '.join(permissions['roles'])
+                auth_text += '\nAllowed roles: `{}`'.format(', '.join(permissions['roles']))
             await self.send_message(message, '{}:\n{}{}'.format(args[1], registered_commands[args[1]].help(), auth_text))
 
     async def _whoami(self, message, args):
@@ -40,7 +40,7 @@ class UtilModule(Module):
         server_roles = ', '.join([str(x.name) for x in message.author.roles[1:]])
         await self._client.send_message(
             message.channel,
-            'You are `%` \n\nUser: `%` \nRoles: `%`', display_name, author, server_roles)
+            'You are `{}` \n\nUser: `{}` \nRoles: `{}`'.format(display_name, author, server_roles))
 
     async def send_message(self, message, args):
         return await self._client.send_message(message.channel, args, tts=message.tts)

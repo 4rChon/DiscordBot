@@ -45,12 +45,12 @@ class ChatModule(Module):
 
         self._initialise_commands()
 
-        logging.info('%: Initialised!', self.__class__.__name__)
+        logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def refresh(self):
         """Reloads the word dictionary to be used in the markov model."""
         self._load_data()
-        logging.info('%: Refreshed!', self.__class__.__name__)
+        logging.info('{}: Refreshed!'.format(self.__class__.__name__))
 
     def _initialise_commands(self):
         command = self._modules['command']

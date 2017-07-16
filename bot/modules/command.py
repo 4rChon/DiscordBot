@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 class Command(object):
     def __init__(self, action, usage, effect):
         self._action = action
-        self._help_text = 'Usage: ' + usage + '\n' + 'Effect: ' + effect
+        self._help_text = 'Usage: {} \nEffect: {}'.format(usage, effect)
 
     async def execute(self, message, args):
         await self._action(message, args)
@@ -25,11 +25,11 @@ class CommandModule(Module):
         self.permissions = {}
         self.registered_commands = {}
 
-        logging.info('%: Initialised!', self.__class__.__name__)
+        logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def refresh(self):
         self._read_permissions()
-        logging.info('%: Refreshed!', self.__class__.__name__)
+        logging.info('{}: Refreshed!'.format(self.__class__.__name__))
 
     def register_commands(self, module, commands_filename):
         with get_file(commands_filename, 'r+') as commands_file:
@@ -46,8 +46,8 @@ class CommandModule(Module):
                 cmd)
 
     def register_command(self, name, action, props):
-        usage = '`' + PREFIX + props["usage"] + '`',
-        effect = '`' + props["effect"] + '`',
+        usage = '`{}`'.format(PREFIX + props["usage"])
+        effect = '`{}`'.format(props["effect"])
 
         self.permissions[name] = props["permissions"]
         self.registered_commands[name] = Command(action, usage, effect)
