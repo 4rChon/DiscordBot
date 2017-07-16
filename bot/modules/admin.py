@@ -1,8 +1,11 @@
 import asyncio
 import logging
+import sys
 import os
+import json
+import inspect
 
-from ..consts import PREFIX, CREATOR, DIRECTORY
+from ..util import get_file
 from .module import Module
 
 logging.basicConfig(level=logging.INFO)
@@ -13,52 +16,18 @@ class AdminModule(Module):
 
         self._initialise_commands()
 
-        logging.info('AdminModule: Initialised!')
+        logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def _initialise_commands(self):
         command = self._modules['command']
 
-        command.register_command(
-            'kill', self._shutdown,
-            '`' + PREFIX + 'kill`',
-            '`Shutdown bot`')
-
-        command.register_command(
-            'restart', self._restart,
-            '`' + PREFIX + 'restart <seconds = 0>`',
-            '`Restart bot after <seconds>`')
-
-        command.register_command(
-            'exec', self._exec,
-            '`' + PREFIX + 'exec <code>`',
-            '`Execute <code>`')
-
-        command.register_command(
-            'eval', self._eval,
-            '`' + PREFIX + 'eval <expression>`',
-            '`Evaluate <expression>`')
-        command.register_command(
-
-            'refresh', self._refresh,
-            '`' + PREFIX + 'refresh <module = all>`',
-            '`Refresh <module>`')
-
-        command.register_command(
-            'auth', self._auth,
-            """`' + PREFIX + 'auth <command> [user <username1> <username2> <...> | role <rolename1>
-             <rolename2> <...>]`""",
-            '`Allow <usernames>/<rolenames> to use <command>`')
-
-        command.register_command(
-            'sleep', self._sleep,
-            '`' + PREFIX + 'sleep`',
-            '`Ignore commands unless invoked by ' + CREATOR + ' (NYI)`')
+        command.register_commands(self, 'admin_commands.json')
 
     #TODO
     async def _sleep(self, message, args):
         print('..')
 
-    async def _shutdown(self, message, args):
+    async def _kill(self, message, args):
         util = self._modules['util']
         client = self._client
 
@@ -86,7 +55,7 @@ class AdminModule(Module):
         await util.delete_message(output)
         await client.logout()
 
-        os.system(DIRECTORY + "/start.bat")
+        os.system('"' + sys.path[0] + '/start.bat"')
 
     async def _exec(self, message, args):
         util = self._modules['util']

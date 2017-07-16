@@ -27,27 +27,16 @@ class ChatModule(Module):
 
         self._initialise_commands()
 
-        logging.info('ChatModule: Initialised!')
+        logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def refresh(self):
         self._load_data()
-        logging.info('ChatModule: Refreshed!')
+        logging.info('{}: Refreshed!'.format(self.__class__.__name__))
 
     def _initialise_commands(self):
         command = self._modules['command']
 
-        command.register_command(
-            'hello', self._hello,
-            '`' + PREFIX + 'hello`',
-            '`Say hello and mention user`')
-        command.register_command(
-            'say', self._say,
-            '`' + PREFIX + 'say`',
-            '`Sprout random nonsense`')
-        command.register_command(
-            'quote', self._quote,
-            '`' + PREFIX + 'quote <english | malti>`',
-            '`Generate a saying`')
+        command.register_commands(self, 'chat_commands.json')
 
     def _load_data(self):
         with get_file('corpus.txt', 'r') as corpus:

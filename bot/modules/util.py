@@ -11,19 +11,12 @@ class UtilModule(Module):
 
         self._initialise_commands()
 
-        logging.info('UtilModule: Initialised!')
+        logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def _initialise_commands(self):
         command = self._modules['command']
 
-        command.register_command(
-            'help', self._help,
-            '`' + PREFIX + 'help <command>`',
-            '`Show help text for <command>`')
-        command.register_command(
-            'whoami', self._whoami,
-            '`' + PREFIX + 'whoami`',
-            '`Show user and user bot role`')
+        command.register_commands(self, 'util_commands.json')
 
     async def _help(self, message, args):
         command = self._modules['command']

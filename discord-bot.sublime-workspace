@@ -1,0 +1,859 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"initalize_all",
+				"tf.initialize_all_variables() \tTensorflow"
+			],
+			[
+				"placeho",
+				"tf.placeholder() \tTensorflow"
+			],
+			[
+				"global_var",
+				"tf.global_variables_initializer() \tTensorflow"
+			],
+			[
+				"global_v",
+				"tf.global_variables_initializer() \tTensorflow"
+			],
+			[
+				"v",
+				"Variable"
+			],
+			[
+				"_tagged",
+				"_taggedSentences"
+			],
+			[
+				"C",
+				"ChatModule"
+			],
+			[
+				"inita",
+				"initialiseUtilCommands"
+			],
+			[
+				"init",
+				"initialiseClient"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.py",
+			"settings":
+			{
+				"buffer_size": 150,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bot/modules/admin.py",
+			"settings":
+			{
+				"buffer_size": 4614,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bot/data/permissions.json",
+			"settings":
+			{
+				"buffer_size": 668,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bot/modules/command.py",
+			"settings":
+			{
+				"buffer_size": 3036,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bot/data/commands.json",
+			"settings":
+			{
+				"buffer_size": 1256,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 16:02:32) [MSC v.1900 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> import sys\n>>> sys.Python\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'sys' has no attribute 'Python'\n>>> where python\n  File \"<stdin>\", line 1\n    where python\n               ^\nSyntaxError: invalid syntax\n>>> print(sys.path)\n['', 'C:\\\\Program Files\\\\Python35\\\\python35.zip', 'C:\\\\Program Files\\\\Python35\\\\DLLs', 'C:\\\\Program Files\\\\Python35\\\\lib', 'C:\\\\Program Files\\\\Python35', 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages']\n>>> ",
+			"settings":
+			{
+				"buffer_size": 657,
+				"line_ending": "Windows",
+				"name": "*REPL* [python]",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"last_filter": "repl pyt",
+		"selected_items":
+		[
+			[
+				"repl pyt",
+				"SublimeREPL: Python"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"enable",
+				"SublimeLinter: Enable Inline Tooltips"
+			],
+			[
+				"linter d",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"linter",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Install Package Control"
+			]
+		],
+		"width": 388.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules"
+	],
+	"file_history":
+	[
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/MNIST_Deep.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/Fibonacci.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/FizzBuzz.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/CartPole.py",
+		"/C/Users/Alarak/AppData/Roaming/Sublime Text 3/Packages/User/python35.sublime-build",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/jeff.py",
+		"/C/Users/Alarak/Desktop/cosmereList.txt",
+		"/C/Users/Alarak/Desktop/Lewin.txt",
+		"/C/Users/Alarak/Desktop/The End of Everything",
+		"/C/Users/Alarak/Desktop/PvZ.txt",
+		"/C/Users/Alarak/Desktop/Desktop Files/webrtc-p2p-chat/node_modules/watchify/test/zzz.js",
+		"/C/Users/Alarak/Desktop/PvT.txt",
+		"/C/Users/Alarak/Desktop/PvP.txt",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/core.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/MapGen/main.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/modules/command.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/modules/chat.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/modules/admin.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/events.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/modules/crawler.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/modules/__init__.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/__init__.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/consts.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/data/permissions.json",
+		"/C/Users/Alarak/Desktop/Desktop Files/DiscordBot/bot/util.py",
+		"/C/Users/Alarak/Desktop/Land of Light.txt",
+		"/C/Users/Alarak/Desktop/interview.txt",
+		"/C/Users/Alarak/AppData/Local/Temp/osvr_server_config.json",
+		"/C/Users/Alarak/Desktop/Desktop Files/war.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/modules/util.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/modules/command.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/modules/module.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/modules/chat.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/modules/crawler.py",
+		"/C/Users/Alarak/Desktop/core.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/core.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/util.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/modules/admin.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/pylint_bot.modules.util.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/pylint_bot.modules.command.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/pylint_bot.modules.module.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/__init__.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/pylint_bot.modules.chat.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/pylint_bot.modules.admin.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/pylint_bot.core.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/main.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/doc.bat",
+		"/C/Users/Alarak/Desktop/DiscordBot/pylint_bot.util.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/events.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/consts.py",
+		"/C/Users/Alarak/Desktop/D&D/Elthanduriel.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/data/permissions.json",
+		"/C/Users/Alarak/Desktop/DiscordBot/DiscordBot.sublime-project",
+		"/C/Users/Alarak/Desktop/DiscordBot/DiscordBot.sublime-workspace",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/data/corpus.txt",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/_roads_file.rds",
+		"/C/Users/Alarak/Desktop/QIBot/Qwiel.txt",
+		"/C/Users/Alarak/Desktop/CW/Crimsonwing Solution/roads_file.rds",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/x64/Release/Data/roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOCHelper.InputFileGenerator/GOCHelper.InputFileGenerator/bin/Debug/roads_file.rds",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/output.rd",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/x64/Release/Data/route_file.rt",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/x64/Debug/Data/roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/x64/Debug/Data/route_file.rt",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/output.rt",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/Sample-problem.rds",
+		"/C/Users/Alarak/Desktop/CW/Crimsonwing Solution/route_file.rt",
+		"/C/Users/Alarak/Desktop/GOCHelper.InputFileGenerator/GOCHelper.InputFileGenerator/bin/Debug/route_file.rds",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/roads_file_orig.rds",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/roads_file_circ.rds",
+		"/C/Users/Alarak/Desktop/Ayman/GOC_2017/GOC_2017/bin/Data/roads_file_200_node.rds",
+		"/C/Users/Alarak/Desktop/AGOC/GOC_2017/GOC_2017/bin/x64/Release/Data/route_file.rt_1.rd",
+		"/C/Users/Alarak/Desktop/AGOC/GOC_2017/GOC_2017/bin/Data/roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/Debug/Data/route_file.rt",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/Release/Data/roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/x64/Debug/Data/_____roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/x64/Debug/Data/___roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/Debug/Data/roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOCHelper.InputFileGenerator/GOCHelper.InputFileGenerator/bin/Debug/route_file.rt",
+		"/C/Users/Alarak/Desktop/GOCHelper.InputFileGenerator/GOCHelper.InputFileGenerator/bin/Debug/output.txt",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/Release/Data/route_file.rt",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/Debug/Data/_roads_file.rds",
+		"/C/Users/Alarak/Desktop/GOC_2017/GOC_2017/bin/Debug/Data/___roads_file.rds",
+		"/B/VR/Runtime/bin/renderManager.extended.landscape.json",
+		"/C/Users/Alarak/AppData/Local/Temp/cw2DataSet1.csv",
+		"/C/Users/Alarak/AppData/Local/Temp/cw2DataSet2.csv",
+		"/B/VR/OSVR-OpenHMD/vendor/OpenHMD/README.md",
+		"/B/VR/OSVR-OpenHMD/je_nourish_openhmd.json",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/data/dictionary.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/data/sentences.txt",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/modules/commands.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/core/core.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/core/consts.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/core/events.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/core/core.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/core/commands.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/bot.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot/settings.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/bot.py",
+		"/C/Users/Alarak/Desktop/DiscordBot/run.bat",
+		"/C/Users/Alarak/AppData/Roaming/.minecraft/versions/minecrift-1.7.10-R2b-forge-nohydra/minecrift-1.7.10-R2b-forge-nohydra.json",
+		"/C/Users/Alarak/Desktop/Battlecode/README.md",
+		"/C/Users/Alarak/Desktop/Elthanduriel.txt",
+		"/C/Users/Alarak/Desktop/stats",
+		"/C/Users/Alarak/Desktop/spells",
+		"/C/Users/Alarak/Desktop/Fountain/README.md",
+		"/C/Users/Alarak/Desktop/BD/README.md",
+		"/B/Games/Steam/config/steamvr.vrsettings",
+		"/B/VR/Oculus/Tools/ETW/README.md",
+		"/B/VR/Runtime/bin/sample-configs/renderManager.extended.landscape.json",
+		"/B/Games/Steam/config/appconfig.json",
+		"/B/VR/OSVR-OpenHMD/sample-configs/Oculus_Rift_DK1.json",
+		"/B/VR/Runtime/bin/Oculus_Rift_DK1.json",
+		"/C/Users/Alarak/Desktop/backup vr settings/Oculus_Rift_DK1.json",
+		"/B/VR/OSVR-OpenHMD/sample-configs/osvr_server_config.json",
+		"/B/VR/Runtime/bin/osvr_server_config.json",
+		"/C/Users/Alarak/AppData/Roaming/.minecraft/versions/1.7.10_fucked/1.7.10.json",
+		"/C/Users/Alarak/Desktop/war.py",
+		"/C/Users/Alarak/Downloads/battlecode-scaffold-master/README.md",
+		"/B/VR/Oculus/Manifests/playful-luckys-tale_assets.json",
+		"/B/VR/Oculus/Manifests/mojang-ab-minecraft-oculus-rift_assets.json",
+		"/C/Users/Alarak/Downloads/battlecode-scaffold-master/.gitignore",
+		"/C/Users/Alarak/AppData/Roaming/.minecraft/versions/1.11.2-forge1.11.2-13.20.0.2203/1.11.2-forge1.11.2-13.20.0.2203.json",
+		"/B/VR/Runtime/bin/displays/Oculus_Rift_DK1.json",
+		"/C/Program Files/OSVR/Runtime/bin/osvr_server_config.json",
+		"/C/Program Files/OSVR/Runtime/bin/sample-configs/osvr_server_config.HDK20ExtendedLandscape.sample.json",
+		"/C/Program Files/OSVR/Runtime/bin/sample-configs/osvr_server_config.dSight.json"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"{\"users\"",
+			": ",
+			"{",
+			", ",
+			": ",
+			"{",
+			"s",
+			"c",
+			"temp",
+			"b",
+			"a",
+			"update_curr",
+			"update_prev",
+			"update_next",
+			"next_num",
+			"prev_num",
+			"curr_num",
+			"session",
+			"-1",
+			":",
+			" =",
+			":",
+			"Buildtime",
+			"gif",
+			"\t",
+			"Special",
+			"Larva",
+			"Cocoon",
+			"    ",
+			"        ",
+			"       ",
+			"      ",
+			"     ",
+			"= ",
+			"\n=",
+			"pointList",
+			",",
+			"addSentence",
+			"Effect",
+			"registered_rommands",
+			"addSentence",
+			"executeCommand",
+			"permissions_file",
+			"commandNames",
+			"deleteMessage",
+			"editMessage",
+			"executeCommand",
+			"sendMessage",
+			"registerCommand",
+			"sendMessage",
+			"registerCommand",
+			"registeredCommands",
+			"authText",
+			"serverRoles",
+			"executeCommand",
+			"f",
+			"removePermissions",
+			"authType",
+			"deleteMessage",
+			"editMessage",
+			"sendMessage",
+			"_writePermissions",
+			"addPermissions",
+			"_readPermissions",
+			"registeredCommands",
+			"registerCommand",
+			"_helpText",
+			"getFile",
+			"    ",
+			"getFile",
+			"filename",
+			"fileDir",
+			"f",
+			"_load_Data",
+			"_loadData",
+			"_markovModel",
+			"_knownSentences",
+			"_initialiseUtilCommands",
+			"_initialiseAdminCommands",
+			"_initialiseChatCommands",
+			"print",
+			"self",
+			"c .* -w",
+			"\\n",
+			"('",
+			"\\n",
+			"('",
+			"Effect",
+			"Usage",
+			"\\n",
+			"self",
+			"_registerModule",
+			"_initialiseEvents",
+			"_initialiseModules",
+			"{\"kill\": {\"users\": [\"ArChon#7601\"], \"roles\": []}, \"restart\": {\"users\": [\"ArChon#7601\"], \"roles\": []}, \"exec\": {\"users\": [\"ArChon#7601\"], \"roles\": []}, \"eval\": {\"users\": [\"ArChon#7601\"], \"roles\": []}, \"refresh\": {\"users\": [\"ArChon#7601\"], \"roles\": []}, \"auth\": {\"users\": [\"ArChon#7601\"], \"roles\": []}, \"sleep\": {\"users\": [\"ArChon#7601\"], \"roles\": []}, \"help\": {\"users\": [], \"roles\": []}, \"whoami\": {\"users\": [], \"roles\": []}, \"hello\": {\"users\": [], \"roles\": []}, \"say\": {\"users\": [], \"roles\": []}}",
+			".[",
+			"Chat",
+			"addSentence",
+			"/",
+			"`",
+			"’",
+			"Ġ",
+			"ċ",
+			"ġ",
+			"ħ",
+			"ż",
+			"\\.",
+			"[^\\.]\\n",
+			"    ",
+			"\\(.*\\)",
+			"ċ",
+			"Ħ",
+			"ġ",
+			"ż",
+			"ħ",
+			"[^\\.]\\n",
+			"\\(.*",
+			"(*",
+			"\\*",
+			"*",
+			"  ",
+			"\\n",
+			"[0-9]",
+			"-",
+			"\\.",
+			"[^\\.]\\n",
+			"\\n",
+			"by"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"'",
+			"`",
+			"G",
+			"c",
+			"g",
+			"h",
+			"z",
+			"c",
+			"H",
+			"g",
+			"z",
+			"h"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "bot/modules/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								242
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bot/data/permissions.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								668,
+								668
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "json"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 465.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "bot/modules/command.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3036,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2137,
+								2137
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "bot/data/commands.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1256,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								376
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "json"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								657,
+								657
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"auto_complete": true,
+							"auto_indent": false,
+							"detect_indentation": false,
+							"gutter": false,
+							"history_arrows": true,
+							"indent_subsequent_lines": false,
+							"line_numbers": false,
+							"repl": true,
+							"repl_external_id": "python",
+							"repl_id": "0cc34812b1c54d46a020639d44d1b439",
+							"repl_restart_args":
+							{
+								"cmd":
+								[
+									"python",
+									"-i",
+									"-u"
+								],
+								"cwd": "$file_path",
+								"encoding": "utf8",
+								"extend_env":
+								{
+									"PYTHONIOENCODING": "utf-8"
+								},
+								"external_id": "python",
+								"syntax": "Packages/Python/Python.tmLanguage",
+								"type": "subprocess"
+							},
+							"repl_sublime2": false,
+							"smart_indent": false,
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 265.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 118.0
+	},
+	"pinned_build_system": "Packages/User/python35.sublime-build",
+	"project": "discord-bot.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 370.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
