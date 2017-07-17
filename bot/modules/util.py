@@ -23,12 +23,12 @@ class UtilModule(Module):
             await self.send_message(message, '`Prefix: {}\nCommands: {}`'.format(PREFIX, command_names))
         elif len(args) > 1:
             auth_text = ''
-            permissions = command.permissions[args[1]]
+            permissions = registered_commands[args[1]].permissions
             if len(permissions['users']) > 0:
                 auth_text += '\nAllowed users: `{}`'.format(', '.join(permissions['users']))
             if len(permissions['roles']) > 0:
                 auth_text += '\nAllowed roles: `{}`'.format(', '.join(permissions['roles']))
-            await self.send_message(message, '{}:\n{}{}'.format(args[1], registered_commands[args[1]].help(), auth_text))
+            await self.send_message(message, '{}:\n{}{}'.format(args[1], registered_commands[args[1]].help, auth_text))
 
     async def _whoami(self, message, args):
         display_name = message.author.display_name

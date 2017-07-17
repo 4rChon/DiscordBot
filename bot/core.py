@@ -28,7 +28,7 @@ class Core(object):
                 'crawler': CrawlerModule
             })
 
-        #self._initialise_events()
+        self._initialise_events()
 
     def _initialise_modules(self, modules):
         for name, module in modules.items():
