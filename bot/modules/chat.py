@@ -43,19 +43,15 @@ class ChatModule(Module):
         self._known_sentences = []
         self._markov_model = {'english': {}, 'malti': {}, 'chat': {}}
 
-        self._initialise_commands()
-
         logging.info('{}: Initialised!'.format(self.__class__.__name__))
+
+    def register_commands(self):
+        self._register_commands('chat_commands.json')
 
     def refresh(self):
         """Reloads the word dictionary to be used in the markov model."""
         self._load_data()
         logging.info('{}: Refreshed!'.format(self.__class__.__name__))
-
-    def _initialise_commands(self):
-        command = self._modules['command']
-
-        command.register_commands(self, 'chat_commands.json')
 
     def _load_data(self):
         with get_file('corpus.txt', 'r') as corpus:

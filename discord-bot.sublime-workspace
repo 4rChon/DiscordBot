@@ -44,28 +44,26 @@
 	"buffers":
 	[
 		{
-			"file": "main.py",
+			"file": "bot/util.py",
 			"settings":
 			{
-				"buffer_size": 150,
-				"encoding": "UTF-8",
+				"buffer_size": 1006,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "bot/modules/admin.py",
+			"file": "bot/events.py",
 			"settings":
 			{
-				"buffer_size": 4614,
-				"encoding": "UTF-8",
+				"buffer_size": 2410,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "bot/data/permissions.json",
+			"file": "bot/core.py",
 			"settings":
 			{
-				"buffer_size": 668,
+				"buffer_size": 2164,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -74,28 +72,54 @@
 			"file": "bot/modules/command.py",
 			"settings":
 			{
-				"buffer_size": 3036,
+				"buffer_size": 1989,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "bot/data/commands.json",
+			"file": "bot/modules/chat.py",
 			"settings":
 			{
-				"buffer_size": 1256,
+				"buffer_size": 4047,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 16:02:32) [MSC v.1900 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> import sys\n>>> sys.Python\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'sys' has no attribute 'Python'\n>>> where python\n  File \"<stdin>\", line 1\n    where python\n               ^\nSyntaxError: invalid syntax\n>>> print(sys.path)\n['', 'C:\\\\Program Files\\\\Python35\\\\python35.zip', 'C:\\\\Program Files\\\\Python35\\\\DLLs', 'C:\\\\Program Files\\\\Python35\\\\lib', 'C:\\\\Program Files\\\\Python35', 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages']\n>>> ",
+			"file": "bot/modules/module.py",
 			"settings":
 			{
-				"buffer_size": 657,
-				"line_ending": "Windows",
-				"name": "*REPL* [python]",
-				"scratch": true
+				"buffer_size": 759,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bot/modules/crawler.py",
+			"settings":
+			{
+				"buffer_size": 229,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bot/modules/util.py",
+			"settings":
+			{
+				"buffer_size": 1948,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "bot/modules/admin.py",
+			"settings":
+			{
+				"buffer_size": 3460,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -122,10 +146,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 219.0,
-		"last_filter": "repl pyt",
+		"height": 392.0,
+		"last_filter": "packa",
 		"selected_items":
 		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimeLinter",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"linter",
+				"SublimeLinter: Next Error"
+			],
 			[
 				"repl pyt",
 				"SublimeREPL: Python"
@@ -143,10 +179,6 @@
 				"SublimeLinter: Disable Linter"
 			],
 			[
-				"linter",
-				"SublimeLinter: Show All Errors"
-			],
-			[
 				"package",
 				"Package Control: List Packages"
 			],
@@ -157,13 +189,9 @@
 			[
 				"package control install",
 				"Package Control: Install Package"
-			],
-			[
-				"packa",
-				"Install Package Control"
 			]
 		],
-		"width": 388.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -189,6 +217,21 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Alarak/Desktop/Desktop Files/The End of Everything.txt",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/util.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/module.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/command.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/chat.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/admin.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/crawler.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/core.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/util.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/consts.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/main.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/util_commands.json",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/admin_commands.json",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/chat_commands.json",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/permissions.json",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/MNIST_Deep.py",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/Fibonacci.py",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/FizzBuzz.py",
@@ -301,26 +344,11 @@
 		"/B/VR/Oculus/Tools/ETW/README.md",
 		"/B/VR/Runtime/bin/sample-configs/renderManager.extended.landscape.json",
 		"/B/Games/Steam/config/appconfig.json",
-		"/B/VR/OSVR-OpenHMD/sample-configs/Oculus_Rift_DK1.json",
-		"/B/VR/Runtime/bin/Oculus_Rift_DK1.json",
-		"/C/Users/Alarak/Desktop/backup vr settings/Oculus_Rift_DK1.json",
-		"/B/VR/OSVR-OpenHMD/sample-configs/osvr_server_config.json",
-		"/B/VR/Runtime/bin/osvr_server_config.json",
-		"/C/Users/Alarak/AppData/Roaming/.minecraft/versions/1.7.10_fucked/1.7.10.json",
-		"/C/Users/Alarak/Desktop/war.py",
-		"/C/Users/Alarak/Downloads/battlecode-scaffold-master/README.md",
-		"/B/VR/Oculus/Manifests/playful-luckys-tale_assets.json",
-		"/B/VR/Oculus/Manifests/mojang-ab-minecraft-oculus-rift_assets.json",
-		"/C/Users/Alarak/Downloads/battlecode-scaffold-master/.gitignore",
-		"/C/Users/Alarak/AppData/Roaming/.minecraft/versions/1.11.2-forge1.11.2-13.20.0.2203/1.11.2-forge1.11.2-13.20.0.2203.json",
-		"/B/VR/Runtime/bin/displays/Oculus_Rift_DK1.json",
-		"/C/Program Files/OSVR/Runtime/bin/osvr_server_config.json",
-		"/C/Program Files/OSVR/Runtime/bin/sample-configs/osvr_server_config.HDK20ExtendedLandscape.sample.json",
-		"/C/Program Files/OSVR/Runtime/bin/sample-configs/osvr_server_config.dSight.json"
+		"/B/VR/OSVR-OpenHMD/sample-configs/Oculus_Rift_DK1.json"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -334,6 +362,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"%",
+			"attributes",
+			"cmd",
+			"method_dict",
+			"self",
+			"function",
+			"\\",
+			"\"users\"",
 			"{\"users\"",
 			": ",
 			"{",
@@ -453,15 +489,7 @@
 			"\\(.*",
 			"(*",
 			"\\*",
-			"*",
-			"  ",
-			"\\n",
-			"[0-9]",
-			"-",
-			"\\.",
-			"[^\\.]\\n",
-			"\\n",
-			"by"
+			"*"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -491,24 +519,195 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "main.py",
+					"file": "bot/util.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 150,
+						"buffer_size": 1006,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								150,
-								150
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "bot/events.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								493,
+								493
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bot/core.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								867,
+								867
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "bot/modules/command.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1989,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								479,
+								479
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "bot/modules/chat.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4047,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								322,
+								322
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "bot/modules/module.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 759,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								151,
+								151
 							]
 						],
 						"settings":
@@ -528,24 +727,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "bot/modules/admin.py",
+					"buffer": 6,
+					"file": "bot/modules/crawler.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4614,
+						"buffer_size": 229,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								242,
-								242
+								229,
+								229
 							]
 						],
 						"settings":
@@ -559,69 +758,69 @@
 								"syntax": "python"
 							},
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bot/data/permissions.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 668,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								668,
-								668
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "json"
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 465.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "bot/modules/command.py",
+					"buffer": 7,
+					"file": "bot/modules/util.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3036,
+						"buffer_size": 1948,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2137,
-								2137
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "bot/modules/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								500,
+								500
 							]
 						],
 						"settings":
@@ -640,120 +839,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 702.0,
+						"translation.y": 1242.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "bot/data/commands.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1256,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								376,
-								376
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "json"
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 657,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								657,
-								657
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"auto_complete": true,
-							"auto_indent": false,
-							"detect_indentation": false,
-							"gutter": false,
-							"history_arrows": true,
-							"indent_subsequent_lines": false,
-							"line_numbers": false,
-							"repl": true,
-							"repl_external_id": "python",
-							"repl_id": "0cc34812b1c54d46a020639d44d1b439",
-							"repl_restart_args":
-							{
-								"cmd":
-								[
-									"python",
-									"-i",
-									"-u"
-								],
-								"cwd": "$file_path",
-								"encoding": "utf8",
-								"extend_env":
-								{
-									"PYTHONIOENCODING": "utf-8"
-								},
-								"external_id": "python",
-								"syntax": "Packages/Python/Python.tmLanguage",
-								"type": "subprocess"
-							},
-							"repl_sublime2": false,
-							"smart_indent": false,
-							"spell_check": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -776,18 +865,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -851,7 +933,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 370.0,
+	"side_bar_width": 226.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -28,17 +28,17 @@ class Core(object):
                 'crawler': CrawlerModule
             })
 
-        self._initialise_events()
-
-    def _register_module(self, name, module):
-        self._modules[name] = module(self._client, self._modules)
+        #self._initialise_events()
 
     def _initialise_modules(self, modules):
-        for key in modules:
-            self._register_module(key, modules[key])
+        for name, module in modules.items():
+            self._modules[name] = module(self._client, self._modules)
 
-        for module in self._modules:
-            self._modules[module].refresh()
+        for _, module in self._modules.items():
+            module.register_commands()
+
+        for _, module in self._modules.items():
+            module.refresh()
 
     def _initialise_events(self):
         command = self._modules['command']

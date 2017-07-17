@@ -7,6 +7,3 @@ class CrawlerModule(Module):
         super().__init__(client, modules)
 
         logging.info('{}: Initialised!'.format(self.__class__.__name__))
-
-    def _initialise_commands(self):
-        command = self._modules['command']

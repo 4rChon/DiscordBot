@@ -9,14 +9,10 @@ class UtilModule(Module):
     def __init__(self, client, modules):
         super().__init__(client, modules)
 
-        self._initialise_commands()
-
         logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
-    def _initialise_commands(self):
-        command = self._modules['command']
-
-        command.register_commands(self, 'util_commands.json')
+    def register_commands(self):
+        self._register_commands('util_commands.json')
 
     async def _help(self, message, args):
         command = self._modules['command']
