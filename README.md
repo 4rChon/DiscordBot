@@ -8,12 +8,14 @@ Initialises the bot and runs the client. Registers the other modules.
 Contains commands meant to be used only by the bot Admin
 
 #### Commands
-* ```shutdown```
+* ```kill```
 * ```restart```
 * ```exec```
 * ```eval```
-* ```auth```
 * ```refresh```
+* ```auth```
+* ```auth_remove```
+* ```sleep``` (WIP)
 
 ### Command
 Creates, registers, and executes commands.
@@ -33,6 +35,7 @@ Some results after being trained on over 10,000 words:
 #### Commands
 * ```hello```
 * ```say```
+* ```quote```
 
 ### Util
 Utility functions for other modules as well as chat.
