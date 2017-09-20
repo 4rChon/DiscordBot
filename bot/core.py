@@ -32,7 +32,7 @@ class Core(object):
 
     def _initialise_modules(self, modules):
         for name, module in modules.items():
-            self._modules[name] = module(self._client, self._modules)
+            self._modules[name] = module(self._client, self._modules, '{}_commands.json'.format(name))
 
         for _, module in self._modules.items():
             module.register_commands()

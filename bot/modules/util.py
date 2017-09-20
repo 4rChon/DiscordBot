@@ -6,13 +6,13 @@ from .module import Module
 logging.basicConfig(level=logging.INFO)
 
 class UtilModule(Module):
-    def __init__(self, client, modules):
-        super().__init__(client, modules)
+    def __init__(self, client, modules, commands_filename):
+        super().__init__(client, modules, commands_filename)
 
         logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def register_commands(self):
-        self._register_commands('util_commands.json')
+        self._register_commands()
 
     async def _help(self, message, args):
         command = self._modules['command']

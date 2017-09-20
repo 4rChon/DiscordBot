@@ -44,81 +44,63 @@
 	"buffers":
 	[
 		{
-			"file": "bot/util.py",
+			"contents": "Chris\n\nRorik the Clanless\n\nRogue, Dwarf\n\n16, 10, 8, 12, 7, 12\n\nThe dwarves of the Diamond Clan were the ruling clan under the Iron Peaks. Rorik, as the eldest son, was next in line as chief after his father, Thorik the Strongarm, was found murdered. The elite members of the Bronze Clan, dissatisfied with the Diamond Clan rule, pinned the murder of Thorik on his son, citing hunger for power as motivation. After a months-long smear campaign against Rorik, definitive proof for his crimes was never found, but it was enough to foster distrust in his clan mates as well as other clans.\n\nNo longer accepted by his clan as the rightful successor to his father and losing the respect of his peers, Rorik went into self-induced exile, leaving the band of the clan chief to his brother, Oren the Younger. The Dwarven Council branded him Clanless.\n\nSome members of the Diamond Clan, fearing for their lives and losing faith in the effectiveness of the Dwarven Council, decided to join Rorik in his exile, but went their separate ways after leaving the mountains. Shortly after Rorik's departure, Oren fell ill and was declared unfit to lead. Rorik's contacts within the mountains went silent. Revenge simmered, but he suppressed his thoughts as he began his new life and made his way to the center of the known world, Urbana Lumina, the capital city of the Light's Legacy.",
 			"settings":
 			{
-				"buffer_size": 1006,
-				"line_ending": "Windows"
+				"buffer_size": 1366,
+				"line_ending": "Windows",
+				"name": "Chris"
 			}
 		},
 		{
-			"file": "bot/events.py",
+			"contents": "Radek Siewniak\nRyan Sciberras\nJames Gabarretta\nAndrea Axisa\nWarren Abdilla\nAndrea Zammit\nBenjamin Bugeja\nKeith J. Barbara\nChristian Galea\nJohn Luke Parnis\n\nAbjad\nAndrea Axisa\nAndrea Zammit\nJohn Luke Parnis\nKeith J. Barbara\nRyan Sciberras\n\nKuluri\nBenjamin Bugeja\nChristian Galea\nJames Gabarretta\nRadek Siewniak\nWarren Abdilla\n",
 			"settings":
 			{
-				"buffer_size": 2410,
-				"line_ending": "Windows"
+				"buffer_size": 325,
+				"line_ending": "Windows",
+				"name": "Radek Siewniak"
 			}
 		},
 		{
-			"file": "bot/core.py",
+			"contents": "Gilbert\n\n\n\nSorcerer, Dragonborn\n\n11, 18, 12, 13, 14, 10",
 			"settings":
 			{
-				"buffer_size": 2164,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 55,
+				"line_ending": "Windows",
+				"name": "Gilbert"
 			}
 		},
 		{
-			"file": "bot/modules/command.py",
+			"contents": "Warren\n\nHaxja Al'Muqran\n\nBarbarian, Half-Orc\n\n15, 11, 9, 13, 14, 13",
 			"settings":
 			{
-				"buffer_size": 1989,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 67,
+				"line_ending": "Windows",
+				"name": "Warren"
 			}
 		},
 		{
-			"file": "bot/modules/chat.py",
+			"contents": "Ministry for the Family, Children’s Rights and Social Solidarity (Lust)\n\nMinistry for Finance, the Economy, Investment and Small Businesses  (Greed) \n\nMinistry for Health, Education and Employment (Sloth)\n\nMinistry for Energy and Water Management (Gluttony)\n\nMinistry for Justice, Home Affairs and National Security (Wrath)\n\nMinistry for Transport, Infrastructure and Capital Projects, Culture and Local Government (Pride)\n\nMinistry for Equality, Foreign Affairs and Trade Promotion (Envy)",
 			"settings":
 			{
-				"buffer_size": 4047,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 489,
+				"line_ending": "Windows",
+				"name": "Ministry for the Family, Children’s Rights and Soc"
 			}
 		},
 		{
-			"file": "bot/modules/module.py",
+			"contents": "Sc2 ml techniques, Papers, publications, game AI neural nets in sc2, input output.\n\nInput:  vector of Feature layers MxN resolution\nOutput: action-function and series of action-arguments\n\nDeepmind/Blizzard: \n\tStarCraft 2 Learning Environment\n\nLearning Type:\n\tReinforcement Learning\n\nEnvironment:\n\tPySC2 ( SC2API ( SC2 ))\n\nUpdate:\n\t22.4 times a second\n\nRandomness: Weapon speed, update order - can be eliminated by setting seed\n\nScore:\n\tTernary Reward: 1 (win) / 0 (tie) / -1 (loss) received at end of game (0 rewards in-game) - real reward\n\tBlizzard Score:\n\t\tCan be used for RL\n\t\tCan be checked in-game\n\t\tLoosely correlates to winning/losing\n\nSC2API:\n\tGenerates feature layers\n\tAbstracts from RGB\n\tLayers with NxM pixels\n\tSome are scalar (HP), others are categorical (Owner)\n\tScreen vs Minimap features\n\tFuture versions will expose a rendered API to allow agents to play from RGB pixels\n\nActions:\n\tCompound Actions - e.g. first choose to move, then choose to queue, then click a point to execute\n\t\t\t\t\t - made atomic: move_screen(queued, screen)\n\n\tAct every 8 frames: ~180 apm\n\nSimpler to learn from replays\nDoes not require super-human apm\nGame was designed to be played with this UI\n\nA3C\n\nPre-processing:\n\tAll feature layers embedded into a continuous space - equivalent to a one-hot encoding in the channel dimension followed by a 1x1 convolution.\n\tRe-scale numerical features with log transformation as some might attain high values (hp, minerals)\n\nAtari-net Baseline:\n\tProcesses screen and minimap with two layers with 16,32 filters of size 8,4 and stride 4,2. Non spatial features processed by linear layer with tanh non-linearity.\n\tResults concat and sent through a linear layer with a ReLU activation.\n\tResulting vector used as input to lin layers that output polices over action function id a^0 and each action-function arg independently\n\nFullyConv\n\nFullyConv LSTM\n\nRandom\n\n---\n\nNo agents manage to win a single game vs easy AI\n\nRL: Maximize damage dealt vs damage taken",
 			"settings":
 			{
-				"buffer_size": 759,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 1978,
+				"line_ending": "Windows",
+				"name": "Sc2 ml techniques, Papers, publications, game AI n"
 			}
 		},
 		{
-			"file": "bot/modules/crawler.py",
 			"settings":
 			{
-				"buffer_size": 229,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "bot/modules/util.py",
-			"settings":
-			{
-				"buffer_size": 1948,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "bot/modules/admin.py",
-			"settings":
-			{
-				"buffer_size": 3460,
-				"encoding": "UTF-8",
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -147,9 +129,17 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "packa",
+		"last_filter": "repl",
 		"selected_items":
 		[
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"install",
+				"Colorsublime: Install Theme"
+			],
 			[
 				"packa",
 				"Package Control: Install Package"
@@ -183,10 +173,6 @@
 				"Package Control: List Packages"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"package control install",
 				"Package Control: Install Package"
 			]
@@ -213,24 +199,33 @@
 	[
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules"
 	],
 	"file_history":
 	[
-		"/C/Users/Alarak/Desktop/Desktop Files/The End of Everything.txt",
-		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/util.py",
-		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/module.py",
+		"/C/Users/Alarak/Desktop/test.php",
+		"/C/Users/Alarak/Desktop/Bdays.txt",
+		"/C/Users/Alarak/Desktop/Desktop Files/Stream Assets/Snip/README.md",
+		"/C/Users/Alarak/Downloads/README.md",
+		"/C/Users/Alarak/.gitconfig",
+		"/C/Users/Alarak/.babel.json",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/command.py",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/chat.py",
-		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/admin.py",
-		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/crawler.py",
-		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/core.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/module.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/chat_commands.json",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/util.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/events.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/core.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/sketchpad.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/admin_commands.json",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/admin.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/util.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/modules/crawler.py",
+		"/C/Users/Alarak/Desktop/Desktop Files/The End of Everything.txt",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/consts.py",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/main.py",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/util_commands.json",
-		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/admin_commands.json",
-		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/chat_commands.json",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/DiscordBot/bot/data/permissions.json",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/MNIST_Deep.py",
 		"/C/Users/Alarak/Desktop/Desktop Files/Python/Tensorflow/Fibonacci.py",
@@ -336,25 +331,18 @@
 		"/C/Users/Alarak/AppData/Roaming/.minecraft/versions/minecrift-1.7.10-R2b-forge-nohydra/minecrift-1.7.10-R2b-forge-nohydra.json",
 		"/C/Users/Alarak/Desktop/Battlecode/README.md",
 		"/C/Users/Alarak/Desktop/Elthanduriel.txt",
-		"/C/Users/Alarak/Desktop/stats",
-		"/C/Users/Alarak/Desktop/spells",
-		"/C/Users/Alarak/Desktop/Fountain/README.md",
-		"/C/Users/Alarak/Desktop/BD/README.md",
-		"/B/Games/Steam/config/steamvr.vrsettings",
-		"/B/VR/Oculus/Tools/ETW/README.md",
-		"/B/VR/Runtime/bin/sample-configs/renderManager.extended.landscape.json",
-		"/B/Games/Steam/config/appconfig.json",
-		"/B/VR/OSVR-OpenHMD/sample-configs/Oculus_Rift_DK1.json"
+		"/C/Users/Alarak/Desktop/stats"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -362,6 +350,19 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Pride",
+			"Gluttony",
+			"Sloth",
+			"Greed",
+			"Lust",
+			"[2]",
+			"September",
+			"Links",
+			"record",
+			"permissions",
+			"module",
+			"self",
+			"execute_command",
 			"%",
 			"attributes",
 			"cmd",
@@ -476,20 +477,7 @@
 			"ġ",
 			"ħ",
 			"ż",
-			"\\.",
-			"[^\\.]\\n",
-			"    ",
-			"\\(.*\\)",
-			"ċ",
-			"Ħ",
-			"ġ",
-			"ż",
-			"ħ",
-			"[^\\.]\\n",
-			"\\(.*",
-			"(*",
-			"\\*",
-			"*"
+			"\\."
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -519,16 +507,202 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "bot/util.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1006,
+						"buffer_size": 1366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1366,
+								63
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Chris",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								294,
+								294
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Radek Siewniak",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 28.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 55,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Gilbert",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 67,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Warren",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								489,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Ministry for the Family, Children’s Rights and Soc",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1978,
+								1978
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 45,
+								"count": 292,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"auto_name": "Sc2 ml techniques, Papers, publications, game AI n",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1026.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -541,308 +715,23 @@
 						],
 						"settings":
 						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bot/events.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2410,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								493,
-								493
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bot/core.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2164,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								867,
-								867
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "bot/modules/command.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1989,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								479,
-								479
-							]
-						],
-						"settings":
-						{
 							"WordCount":
 							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
+								"changes": 0,
+								"count": 0,
+								"modified": false,
+								"selection": false,
 								"status": -1,
-								"syntax": "python"
+								"syntax": "plain text"
 							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "bot/modules/chat.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4047,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								322,
-								322
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 432.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "bot/modules/module.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 759,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								151,
-								151
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "bot/modules/crawler.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 229,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								229,
-								229
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "bot/modules/util.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1948,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								313,
-								313
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 54.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "bot/modules/admin.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3460,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								500,
-								500
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": -1,
-								"modified": true,
-								"selection": true,
-								"status": -1,
-								"syntax": "python"
-							},
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1242.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -932,7 +821,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 226.0,
 	"status_bar_visible": true,
 	"template_settings":

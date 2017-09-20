@@ -37,8 +37,8 @@ class POSifiedText(markovify.Text):
 
 class ChatModule(Module):
     """ChatModule which defines chatting methods."""
-    def __init__(self, client, modules):
-        super().__init__(client, modules)
+    def __init__(self, client, modules, commands_filename):
+        super().__init__(client, modules, commands_filename)
 
         self._known_sentences = []
         self._markov_model = {'english': {}, 'malti': {}, 'chat': {}}
@@ -46,7 +46,7 @@ class ChatModule(Module):
         logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def register_commands(self):
-        self._register_commands('chat_commands.json')
+        self._register_commands()
 
     def refresh(self):
         """Reloads the word dictionary to be used in the markov model."""

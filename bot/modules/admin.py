@@ -10,13 +10,13 @@ logging.basicConfig(level=logging.INFO)
 
 class AdminModule(Module):
     """AdminModule which defines administrative methods."""
-    def __init__(self, client, modules):
-        super().__init__(client, modules)
+    def __init__(self, client, modules, commands_filename):
+        super().__init__(client, modules, commands_filename)
 
         logging.info('{}: Initialised!'.format(self.__class__.__name__))
 
     def register_commands(self):
-        self._register_commands('admin_commands.json')
+        self._register_commands()
 
     #TODO
     async def _sleep(self, message, args):
@@ -75,8 +75,9 @@ class AdminModule(Module):
             msg = await util.send_message(message, 'Evaluating...')
             await util.edit_message(msg, result)
 
-    async def _auth(self, message, args):
+    async def _auth_remove(self, message, args):
         command = self._modules['command']
+        util = self._modules['util']
 
         cmd = args[0]
 
@@ -84,7 +85,23 @@ class AdminModule(Module):
             await command.execute_command(message, ['help', cmd])
         elif len(args) == 4:
             if args[2] == 'users' or args[2] == 'roles':
-                command.addPermissions(args[1], args[2], args[3:])
+                command.remove_permissions(args[1], args[2], args[3:])
+                await util.send_message(message, 'Permissions updated')
+            else:
+                await command.execute_command(message, ['help', cmd])
+
+    async def _auth(self, message, args):
+        command = self._modules['command']
+        util = self._modules['util']
+
+        cmd = args[0]
+
+        if len(args) <= 3:
+            await command.execute_command(message, ['help', cmd])
+        elif len(args) == 4:
+            if args[2] == 'users' or args[2] == 'roles':
+                command.add_permissions(args[1], args[2], args[3:])
+                await util.send_message(message, 'Permissions updated')
             else:
                 await command.execute_command(message, ['help', cmd])
 
